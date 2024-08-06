@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="PeopleService"
+    targetNamespace="http://example.com/people"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://example.com/people"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:lib="musicxml">
+
+    <!-- Types -->
+    <types>
+        <xs:schema targetNamespace="musicxml"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+            <xs:import namespace="people" schemaLocation="musicxml.xsd" />
+        </xs:schema>
+    </types>
+
+
+</definitions>

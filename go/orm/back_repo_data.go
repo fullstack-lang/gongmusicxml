@@ -4,19 +4,19 @@ package orm
 type BackRepoData struct {
 	// insertion point for slices
 
-	FoAPIs []*FoAPI
+	FooAPIs []*FooAPI
 }
 
 func CopyBackRepoToBackRepoData(backRepo *BackRepoStruct, backRepoData *BackRepoData) {
 	// insertion point for slices copies
-	for _, foDB := range backRepo.BackRepoFo.Map_FoDBID_FoDB {
+	for _, fooDB := range backRepo.BackRepoFoo.Map_FooDBID_FooDB {
 
-		var foAPI FoAPI
-		foAPI.ID = foDB.ID
-		foAPI.FoPointersEncoding = foDB.FoPointersEncoding
-		foDB.CopyBasicFieldsToFo_WOP(&foAPI.Fo_WOP)
+		var fooAPI FooAPI
+		fooAPI.ID = fooDB.ID
+		fooAPI.FooPointersEncoding = fooDB.FooPointersEncoding
+		fooDB.CopyBasicFieldsToFoo_WOP(&fooAPI.Foo_WOP)
 
-		backRepoData.FoAPIs = append(backRepoData.FoAPIs, &foAPI)
+		backRepoData.FooAPIs = append(backRepoData.FooAPIs, &fooAPI)
 	}
 
 }

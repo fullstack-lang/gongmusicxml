@@ -20,12 +20,12 @@ func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Prob
 
 	switch instancesTyped := any(instance).(type) {
 	// insertion point
-	case *models.Fo:
+	case *models.Foo:
 		formGroup := (&gongtable.FormGroup{
 			Name:  formName,
-			Label: "Fo Form",
+			Label: "Foo Form",
 		}).Stage(formStage)
-		formGroup.OnSave = __gong__New__FoFormCallback(
+		formGroup.OnSave = __gong__New__FooFormCallback(
 			instancesTyped,
 			probe,
 			formGroup,

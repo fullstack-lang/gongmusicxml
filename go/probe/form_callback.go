@@ -18,23 +18,23 @@ var __dummmy__letters = slices.Delete([]string{"a"}, 0, 1)
 var __dummy_orm = orm.BackRepoStruct{}
 
 // insertion point
-func __gong__New__FoFormCallback(
-	fo *models.Fo,
+func __gong__New__FooFormCallback(
+	foo *models.Foo,
 	probe *Probe,
 	formGroup *table.FormGroup,
-) (foFormCallback *FoFormCallback) {
-	foFormCallback = new(FoFormCallback)
-	foFormCallback.probe = probe
-	foFormCallback.fo = fo
-	foFormCallback.formGroup = formGroup
+) (fooFormCallback *FooFormCallback) {
+	fooFormCallback = new(FooFormCallback)
+	fooFormCallback.probe = probe
+	fooFormCallback.foo = foo
+	fooFormCallback.formGroup = formGroup
 
-	foFormCallback.CreationMode = (fo == nil)
+	fooFormCallback.CreationMode = (foo == nil)
 
 	return
 }
 
-type FoFormCallback struct {
-	fo *models.Fo
+type FooFormCallback struct {
+	foo *models.Foo
 
 	// If the form call is called on the creation of a new instnace
 	CreationMode bool
@@ -44,54 +44,54 @@ type FoFormCallback struct {
 	formGroup *table.FormGroup
 }
 
-func (foFormCallback *FoFormCallback) OnSave() {
+func (fooFormCallback *FooFormCallback) OnSave() {
 
-	log.Println("FoFormCallback, OnSave")
+	log.Println("FooFormCallback, OnSave")
 
 	// checkout formStage to have the form group on the stage synchronized with the
 	// back repo (and front repo)
-	foFormCallback.probe.formStage.Checkout()
+	fooFormCallback.probe.formStage.Checkout()
 
-	if foFormCallback.fo == nil {
-		foFormCallback.fo = new(models.Fo).Stage(foFormCallback.probe.stageOfInterest)
+	if fooFormCallback.foo == nil {
+		fooFormCallback.foo = new(models.Foo).Stage(fooFormCallback.probe.stageOfInterest)
 	}
-	fo_ := foFormCallback.fo
-	_ = fo_
+	foo_ := fooFormCallback.foo
+	_ = foo_
 
-	for _, formDiv := range foFormCallback.formGroup.FormDivs {
+	for _, formDiv := range fooFormCallback.formGroup.FormDivs {
 		switch formDiv.Name {
 		// insertion point per field
 		case "Name":
-			FormDivBasicFieldToField(&(fo_.Name), formDiv)
+			FormDivBasicFieldToField(&(foo_.Name), formDiv)
 		}
 	}
 
 	// manage the suppress operation
-	if foFormCallback.formGroup.HasSuppressButtonBeenPressed {
-		fo_.Unstage(foFormCallback.probe.stageOfInterest)
+	if fooFormCallback.formGroup.HasSuppressButtonBeenPressed {
+		foo_.Unstage(fooFormCallback.probe.stageOfInterest)
 	}
 
-	foFormCallback.probe.stageOfInterest.Commit()
-	fillUpTable[models.Fo](
-		foFormCallback.probe,
+	fooFormCallback.probe.stageOfInterest.Commit()
+	fillUpTable[models.Foo](
+		fooFormCallback.probe,
 	)
-	foFormCallback.probe.tableStage.Commit()
+	fooFormCallback.probe.tableStage.Commit()
 
 	// display a new form by reset the form stage
-	if foFormCallback.CreationMode || foFormCallback.formGroup.HasSuppressButtonBeenPressed {
-		foFormCallback.probe.formStage.Reset()
+	if fooFormCallback.CreationMode || fooFormCallback.formGroup.HasSuppressButtonBeenPressed {
+		fooFormCallback.probe.formStage.Reset()
 		newFormGroup := (&table.FormGroup{
 			Name: table.FormGroupDefaultName.ToString(),
-		}).Stage(foFormCallback.probe.formStage)
-		newFormGroup.OnSave = __gong__New__FoFormCallback(
+		}).Stage(fooFormCallback.probe.formStage)
+		newFormGroup.OnSave = __gong__New__FooFormCallback(
 			nil,
-			foFormCallback.probe,
+			fooFormCallback.probe,
 			newFormGroup,
 		)
-		fo := new(models.Fo)
-		FillUpForm(fo, newFormGroup, foFormCallback.probe)
-		foFormCallback.probe.formStage.Commit()
+		foo := new(models.Foo)
+		FillUpForm(foo, newFormGroup, fooFormCallback.probe)
+		fooFormCallback.probe.formStage.Commit()
 	}
 
-	fillUpTree(foFormCallback.probe)
+	fillUpTree(fooFormCallback.probe)
 }

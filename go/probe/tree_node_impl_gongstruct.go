@@ -52,8 +52,8 @@ func (nodeImplGongstruct *TreeNodeImplGongstruct) OnAfterUpdate(
 	log.Println("NodeImplGongstruct:OnAfterUpdate with: ", nodeImplGongstruct.gongStruct.GetName())
 
 	// insertion point
-	if nodeImplGongstruct.gongStruct.GetName() == "Fo" {
-		fillUpTable[models.Fo](nodeImplGongstruct.probe)
+	if nodeImplGongstruct.gongStruct.GetName() == "Foo" {
+		fillUpTable[models.Foo](nodeImplGongstruct.probe)
 	}
 
 	// set color for node and reset all other nodes color

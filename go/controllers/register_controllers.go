@@ -47,12 +47,12 @@ type ValidationError struct {
 func registerControllers(r *gin.Engine) {
 	v1 := r.Group("/api/github.com/fullstack-lang/gongmusicxml/go")
 	{ // insertion point for registrations
-		v1.GET("/v1/fos", GetController().GetFos)
-		v1.GET("/v1/fos/:id", GetController().GetFo)
-		v1.POST("/v1/fos", GetController().PostFo)
-		v1.PATCH("/v1/fos/:id", GetController().UpdateFo)
-		v1.PUT("/v1/fos/:id", GetController().UpdateFo)
-		v1.DELETE("/v1/fos/:id", GetController().DeleteFo)
+		v1.GET("/v1/foos", GetController().GetFoos)
+		v1.GET("/v1/foos/:id", GetController().GetFoo)
+		v1.POST("/v1/foos", GetController().PostFoo)
+		v1.PATCH("/v1/foos/:id", GetController().UpdateFoo)
+		v1.PUT("/v1/foos/:id", GetController().UpdateFoo)
+		v1.DELETE("/v1/foos/:id", GetController().DeleteFoo)
 
 		v1.GET("/v1/commitfrombacknb", GetController().GetLastCommitFromBackNb)
 		v1.GET("/v1/pushfromfrontnb", GetController().GetLastPushFromFrontNb)

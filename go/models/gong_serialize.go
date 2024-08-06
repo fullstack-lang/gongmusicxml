@@ -14,7 +14,7 @@ func SerializeStage(stage *StageStruct, filename string) {
 	f := excelize.NewFile()
 	{
 		// insertion point
-		SerializeExcelize[Fo](stage, f)
+		SerializeExcelize[Foo](stage, f)
 	}
 
 	var tab ExcelizeTabulator

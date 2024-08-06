@@ -5,8 +5,8 @@ func IsStaged[Type Gongstruct](stage *StageStruct, instance *Type) (ok bool) {
 
 	switch target := any(instance).(type) {
 	// insertion point for stage
-	case *Fo:
-		ok = stage.IsStagedFo(target)
+	case *Foo:
+		ok = stage.IsStagedFoo(target)
 
 	default:
 		_ = target
@@ -15,9 +15,9 @@ func IsStaged[Type Gongstruct](stage *StageStruct, instance *Type) (ok bool) {
 }
 
 // insertion point for stage per struct
-func (stage *StageStruct) IsStagedFo(fo *Fo) (ok bool) {
+func (stage *StageStruct) IsStagedFoo(foo *Foo) (ok bool) {
 
-	_, ok = stage.Fos[fo]
+	_, ok = stage.Foos[foo]
 
 	return
 }
@@ -30,8 +30,8 @@ func StageBranch[Type Gongstruct](stage *StageStruct, instance *Type) {
 
 	switch target := any(instance).(type) {
 	// insertion point for stage branch
-	case *Fo:
-		stage.StageBranchFo(target)
+	case *Foo:
+		stage.StageBranchFoo(target)
 
 	default:
 		_ = target
@@ -39,14 +39,14 @@ func StageBranch[Type Gongstruct](stage *StageStruct, instance *Type) {
 }
 
 // insertion point for stage branch per struct
-func (stage *StageStruct) StageBranchFo(fo *Fo) {
+func (stage *StageStruct) StageBranchFoo(foo *Foo) {
 
 	// check if instance is already staged
-	if IsStaged(stage, fo) {
+	if IsStaged(stage, foo) {
 		return
 	}
 
-	fo.Stage(stage)
+	foo.Stage(stage)
 
 	//insertion point for the staging of instances referenced by pointers
 
@@ -65,8 +65,8 @@ func CopyBranch[Type Gongstruct](from *Type) (to *Type) {
 
 	switch fromT := any(from).(type) {
 	// insertion point for stage branch
-	case *Fo:
-		toT := CopyBranchFo(mapOrigCopy, fromT)
+	case *Foo:
+		toT := CopyBranchFoo(mapOrigCopy, fromT)
 		return any(toT).(*Type)
 
 	default:
@@ -76,17 +76,17 @@ func CopyBranch[Type Gongstruct](from *Type) (to *Type) {
 }
 
 // insertion point for stage branch per struct
-func CopyBranchFo(mapOrigCopy map[any]any, foFrom *Fo) (foTo *Fo) {
+func CopyBranchFoo(mapOrigCopy map[any]any, fooFrom *Foo) (fooTo *Foo) {
 
-	// foFrom has already been copied
-	if _foTo, ok := mapOrigCopy[foFrom]; ok {
-		foTo = _foTo.(*Fo)
+	// fooFrom has already been copied
+	if _fooTo, ok := mapOrigCopy[fooFrom]; ok {
+		fooTo = _fooTo.(*Foo)
 		return
 	}
 
-	foTo = new(Fo)
-	mapOrigCopy[foFrom] = foTo
-	foFrom.CopyBasicFields(foTo)
+	fooTo = new(Foo)
+	mapOrigCopy[fooFrom] = fooTo
+	fooFrom.CopyBasicFields(fooTo)
 
 	//insertion point for the staging of instances referenced by pointers
 
@@ -103,8 +103,8 @@ func UnstageBranch[Type Gongstruct](stage *StageStruct, instance *Type) {
 
 	switch target := any(instance).(type) {
 	// insertion point for unstage branch
-	case *Fo:
-		stage.UnstageBranchFo(target)
+	case *Foo:
+		stage.UnstageBranchFoo(target)
 
 	default:
 		_ = target
@@ -112,14 +112,14 @@ func UnstageBranch[Type Gongstruct](stage *StageStruct, instance *Type) {
 }
 
 // insertion point for unstage branch per struct
-func (stage *StageStruct) UnstageBranchFo(fo *Fo) {
+func (stage *StageStruct) UnstageBranchFoo(foo *Foo) {
 
 	// check if instance is already staged
-	if !IsStaged(stage, fo) {
+	if !IsStaged(stage, foo) {
 		return
 	}
 
-	fo.Unstage(stage)
+	foo.Unstage(stage)
 
 	//insertion point for the staging of instances referenced by pointers
 

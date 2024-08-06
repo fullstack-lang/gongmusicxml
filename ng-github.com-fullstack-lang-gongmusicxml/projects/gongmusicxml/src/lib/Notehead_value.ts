@@ -1,0 +1,68 @@
+// generated from ng_file_enum.ts.go
+export enum Notehead_value {
+	// insertion point	
+	Notehead_valueSlash = "slash",
+	Notehead_valueTriangle = "triangle",
+	Notehead_valueDiamond = "diamond",
+	Notehead_valueSquare = "square",
+	Notehead_valueCross = "cross",
+	Notehead_valueX = "x",
+	Notehead_valueCircle_x = "circle-x",
+	Notehead_valueInvertedtriangle = "inverted triangle",
+	Notehead_valueArrowdown = "arrow down",
+	Notehead_valueArrowup = "arrow up",
+	Notehead_valueCircled = "circled",
+	Notehead_valueSlashed = "slashed",
+	Notehead_valueBackslashed = "back slashed",
+	Notehead_valueNormal = "normal",
+	Notehead_valueCluster = "cluster",
+	Notehead_valueCircledot = "circle dot",
+	Notehead_valueLefttriangle = "left triangle",
+	Notehead_valueRectangle = "rectangle",
+	Notehead_valueNone = "none",
+	Notehead_valueDo = "do",
+	Notehead_valueRe = "re",
+	Notehead_valueMi = "mi",
+	Notehead_valueFa = "fa",
+	Notehead_valueFaup = "fa up",
+	Notehead_valueSo = "so",
+	Notehead_valueLa = "la",
+	Notehead_valueTi = "ti",
+	Notehead_valueOther = "other",
+}
+
+export interface Notehead_valueSelect {
+	value: string;
+	viewValue: string;
+}
+
+export const Notehead_valueList: Notehead_valueSelect[] = [ // insertion point	
+	{ value: Notehead_value.Notehead_valueSlash, viewValue: "slash" },
+	{ value: Notehead_value.Notehead_valueTriangle, viewValue: "triangle" },
+	{ value: Notehead_value.Notehead_valueDiamond, viewValue: "diamond" },
+	{ value: Notehead_value.Notehead_valueSquare, viewValue: "square" },
+	{ value: Notehead_value.Notehead_valueCross, viewValue: "cross" },
+	{ value: Notehead_value.Notehead_valueX, viewValue: "x" },
+	{ value: Notehead_value.Notehead_valueCircle_x, viewValue: "circle-x" },
+	{ value: Notehead_value.Notehead_valueInvertedtriangle, viewValue: "inverted triangle" },
+	{ value: Notehead_value.Notehead_valueArrowdown, viewValue: "arrow down" },
+	{ value: Notehead_value.Notehead_valueArrowup, viewValue: "arrow up" },
+	{ value: Notehead_value.Notehead_valueCircled, viewValue: "circled" },
+	{ value: Notehead_value.Notehead_valueSlashed, viewValue: "slashed" },
+	{ value: Notehead_value.Notehead_valueBackslashed, viewValue: "back slashed" },
+	{ value: Notehead_value.Notehead_valueNormal, viewValue: "normal" },
+	{ value: Notehead_value.Notehead_valueCluster, viewValue: "cluster" },
+	{ value: Notehead_value.Notehead_valueCircledot, viewValue: "circle dot" },
+	{ value: Notehead_value.Notehead_valueLefttriangle, viewValue: "left triangle" },
+	{ value: Notehead_value.Notehead_valueRectangle, viewValue: "rectangle" },
+	{ value: Notehead_value.Notehead_valueNone, viewValue: "none" },
+	{ value: Notehead_value.Notehead_valueDo, viewValue: "do" },
+	{ value: Notehead_value.Notehead_valueRe, viewValue: "re" },
+	{ value: Notehead_value.Notehead_valueMi, viewValue: "mi" },
+	{ value: Notehead_value.Notehead_valueFa, viewValue: "fa" },
+	{ value: Notehead_value.Notehead_valueFaup, viewValue: "fa up" },
+	{ value: Notehead_value.Notehead_valueSo, viewValue: "so" },
+	{ value: Notehead_value.Notehead_valueLa, viewValue: "la" },
+	{ value: Notehead_value.Notehead_valueTi, viewValue: "ti" },
+	{ value: Notehead_value.Notehead_valueOther, viewValue: "other" },
+];

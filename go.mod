@@ -13,6 +13,7 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/glebarez/sqlite v1.11.0
 	github.com/gorilla/websocket v1.5.3
+	github.com/hooklift/gowsdl v0.5.0
 	github.com/tealeg/xlsx/v3 v3.3.7
 	github.com/xuri/excelize/v2 v2.8.1
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56

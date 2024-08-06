@@ -94,28 +94,28 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 	_ = setValueField
 
 	// insertion initialization of objects to stage
-	map_Fo_Identifiers := make(map[*Fo]string)
-	_ = map_Fo_Identifiers
+	map_Foo_Identifiers := make(map[*Foo]string)
+	_ = map_Foo_Identifiers
 
-	foOrdered := []*Fo{}
-	for fo := range stage.Fos {
-		foOrdered = append(foOrdered, fo)
+	fooOrdered := []*Foo{}
+	for foo := range stage.Foos {
+		fooOrdered = append(fooOrdered, foo)
 	}
-	sort.Slice(foOrdered[:], func(i, j int) bool {
-		return foOrdered[i].Name < foOrdered[j].Name
+	sort.Slice(fooOrdered[:], func(i, j int) bool {
+		return fooOrdered[i].Name < fooOrdered[j].Name
 	})
-	if len(foOrdered) > 0 {
+	if len(fooOrdered) > 0 {
 		identifiersDecl += "\n"
 	}
-	for idx, fo := range foOrdered {
+	for idx, foo := range fooOrdered {
 
-		id = generatesIdentifier("Fo", idx, fo.Name)
-		map_Fo_Identifiers[fo] = id
+		id = generatesIdentifier("Foo", idx, foo.Name)
+		map_Foo_Identifiers[foo] = id
 
 		decl = IdentifiersDecls
 		decl = strings.ReplaceAll(decl, "{{Identifier}}", id)
-		decl = strings.ReplaceAll(decl, "{{GeneratedStructName}}", "Fo")
-		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", fo.Name)
+		decl = strings.ReplaceAll(decl, "{{GeneratedStructName}}", "Foo")
+		decl = strings.ReplaceAll(decl, "{{GeneratedFieldNameValue}}", foo.Name)
 		identifiersDecl += decl
 
 		initializerStatements += "\n"
@@ -123,18 +123,18 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		setValueField = StringInitStatement
 		setValueField = strings.ReplaceAll(setValueField, "{{Identifier}}", id)
 		setValueField = strings.ReplaceAll(setValueField, "{{GeneratedFieldName}}", "Name")
-		setValueField = strings.ReplaceAll(setValueField, "{{GeneratedFieldNameValue}}", string(fo.Name))
+		setValueField = strings.ReplaceAll(setValueField, "{{GeneratedFieldNameValue}}", string(foo.Name))
 		initializerStatements += setValueField
 
 	}
 
 	// insertion initialization of objects to stage
-	for idx, fo := range foOrdered {
+	for idx, foo := range fooOrdered {
 		var setPointerField string
 		_ = setPointerField
 
-		id = generatesIdentifier("Fo", idx, fo.Name)
-		map_Fo_Identifiers[fo] = id
+		id = generatesIdentifier("Foo", idx, foo.Name)
+		map_Foo_Identifiers[foo] = id
 
 		// Initialisation of values
 	}

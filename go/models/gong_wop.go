@@ -7,12 +7,12 @@ import "time"
 var __GONG_time_The_fool_doth_think_he_is_wise__ = time.Hour
 
 // insertion point
-type Fo_WOP struct {
+type Foo_WOP struct {
 	// insertion point
 	Name string
 }
 
-func (from *Fo) CopyBasicFields(to *Fo) {
+func (from *Foo) CopyBasicFields(to *Foo) {
 	// insertion point
 	to.Name = from.Name
 }
