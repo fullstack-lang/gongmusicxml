@@ -3723,6 +3723,120 @@ func (font_weight Font_weight) CodeValues() (res []string) {
 	return
 }
 
+// Utility function for Formatted_text
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (formatted_text Formatted_text) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch formatted_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (formatted_text *Formatted_text) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (formatted_text *Formatted_text) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (formatted_text *Formatted_text) ToCodeString() (res string) {
+
+	switch *formatted_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (formatted_text Formatted_text) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (formatted_text Formatted_text) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+// Utility function for Formatted_text_id
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (formatted_text_id Formatted_text_id) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch formatted_text_id {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (formatted_text_id *Formatted_text_id) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (formatted_text_id *Formatted_text_id) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (formatted_text_id *Formatted_text_id) ToCodeString() (res string) {
+
+	switch *formatted_text_id {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (formatted_text_id Formatted_text_id) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (formatted_text_id Formatted_text_id) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
 // Utility function for Glass_value
 // if enum values are string, it is stored with the value
 // if enum values are int, they are stored with the code of the value
@@ -3956,6 +4070,63 @@ func (group_barline_value Group_barline_value) CodeValues() (res []string) {
 	res = append(res, "yes")
 	res = append(res, "no")
 	res = append(res, "Mensurstrich")
+
+	return
+}
+
+// Utility function for Group_name
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (group_name Group_name) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch group_name {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (group_name *Group_name) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (group_name *Group_name) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (group_name *Group_name) ToCodeString() (res string) {
+
+	switch *group_name {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (group_name Group_name) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (group_name Group_name) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
 
 	return
 }
@@ -4819,6 +4990,120 @@ func (hole_closed_value Hole_closed_value) CodeValues() (res []string) {
 	res = append(res, "yes")
 	res = append(res, "no")
 	res = append(res, "half")
+
+	return
+}
+
+// Utility function for IDREF
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (idref IDREF) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch idref {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (idref *IDREF) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (idref *IDREF) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (idref *IDREF) ToCodeString() (res string) {
+
+	switch *idref {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (idref IDREF) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (idref IDREF) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+// Utility function for ID_MUSICXML
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (id_musicxml ID_MUSICXML) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch id_musicxml {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (id_musicxml *ID_MUSICXML) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (id_musicxml *ID_MUSICXML) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (id_musicxml *ID_MUSICXML) ToCodeString() (res string) {
+
+	switch *id_musicxml {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (id_musicxml ID_MUSICXML) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (id_musicxml ID_MUSICXML) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
 
 	return
 }
@@ -8059,6 +8344,177 @@ func (on_off On_off) CodeValues() (res []string) {
 	return
 }
 
+// Utility function for Other_direction
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (other_direction Other_direction) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch other_direction {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (other_direction *Other_direction) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (other_direction *Other_direction) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (other_direction *Other_direction) ToCodeString() (res string) {
+
+	switch *other_direction {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (other_direction Other_direction) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (other_direction Other_direction) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+// Utility function for Other_placement_text
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (other_placement_text Other_placement_text) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch other_placement_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (other_placement_text *Other_placement_text) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (other_placement_text *Other_placement_text) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (other_placement_text *Other_placement_text) ToCodeString() (res string) {
+
+	switch *other_placement_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (other_placement_text Other_placement_text) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (other_placement_text Other_placement_text) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+// Utility function for Other_text
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (other_text Other_text) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch other_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (other_text *Other_text) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (other_text *Other_text) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (other_text *Other_text) ToCodeString() (res string) {
+
+	switch *other_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (other_text Other_text) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (other_text Other_text) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
 // Utility function for Over_under
 // if enum values are string, it is stored with the value
 // if enum values are int, they are stored with the code of the value
@@ -8134,6 +8590,63 @@ func (over_under Over_under) CodeValues() (res []string) {
 	// insertion code per enum code
 	res = append(res, "over")
 	res = append(res, "under")
+
+	return
+}
+
+// Utility function for Part_name
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (part_name Part_name) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch part_name {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (part_name *Part_name) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (part_name *Part_name) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (part_name *Part_name) ToCodeString() (res string) {
+
+	switch *part_name {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (part_name Part_name) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (part_name Part_name) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
 
 	return
 }
@@ -8268,6 +8781,63 @@ func (pedal_type Pedal_type) CodeValues() (res []string) {
 	res = append(res, "continue")
 	res = append(res, "discontinue")
 	res = append(res, "resume")
+
+	return
+}
+
+// Utility function for Per_minute
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (per_minute Per_minute) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch per_minute {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (per_minute *Per_minute) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (per_minute *Per_minute) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (per_minute *Per_minute) ToCodeString() (res string) {
+
+	switch *per_minute {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (per_minute Per_minute) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (per_minute Per_minute) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
 
 	return
 }
@@ -8446,6 +9016,63 @@ func (pitched_value Pitched_value) CodeValues() (res []string) {
 	res = append(res, "tubular chimes")
 	res = append(res, "vibraphone")
 	res = append(res, "xylophone")
+
+	return
+}
+
+// Utility function for Placement_text
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (placement_text Placement_text) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch placement_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (placement_text *Placement_text) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (placement_text *Placement_text) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (placement_text *Placement_text) ToCodeString() (res string) {
+
+	switch *placement_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (placement_text Placement_text) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (placement_text Placement_text) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
 
 	return
 }
@@ -10400,6 +11027,63 @@ func (stick_type Stick_type) CodeValues() (res []string) {
 	res = append(res, "wound")
 	res = append(res, "xylophone")
 	res = append(res, "yarn")
+
+	return
+}
+
+// Utility function for Style_text
+// if enum values are string, it is stored with the value
+// if enum values are int, they are stored with the code of the value
+func (style_text Style_text) ToString() (res string) {
+
+	// migration of former implementation of enum
+	switch style_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (style_text *Style_text) FromString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+}
+
+func (style_text *Style_text) FromCodeString(input string) (err error) {
+
+	switch input {
+	// insertion code per enum code
+	default:
+		return errUnkownEnum
+	}
+	return
+}
+
+func (style_text *Style_text) ToCodeString() (res string) {
+
+	switch *style_text {
+	// insertion code per enum code
+	}
+	return
+}
+
+func (style_text Style_text) Codes() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
+
+	return
+}
+
+func (style_text Style_text) CodeValues() (res []string) {
+
+	res = make([]string, 0)
+
+	// insertion code per enum code
 
 	return
 }

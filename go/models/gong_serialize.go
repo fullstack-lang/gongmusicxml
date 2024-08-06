@@ -14,7 +14,13 @@ func SerializeStage(stage *StageStruct, filename string) {
 	f := excelize.NewFile()
 	{
 		// insertion point
+		SerializeExcelize[Bookmark](stage, f)
 		SerializeExcelize[Foo](stage, f)
+		SerializeExcelize[Link](stage, f)
+		SerializeExcelize[Lyric](stage, f)
+		SerializeExcelize[Lyric_font](stage, f)
+		SerializeExcelize[Lyric_language](stage, f)
+		SerializeExcelize[Miscellaneous_field](stage, f)
 	}
 
 	var tab ExcelizeTabulator

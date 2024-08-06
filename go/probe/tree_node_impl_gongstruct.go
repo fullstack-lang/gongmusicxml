@@ -52,8 +52,26 @@ func (nodeImplGongstruct *TreeNodeImplGongstruct) OnAfterUpdate(
 	log.Println("NodeImplGongstruct:OnAfterUpdate with: ", nodeImplGongstruct.gongStruct.GetName())
 
 	// insertion point
+	if nodeImplGongstruct.gongStruct.GetName() == "Bookmark" {
+		fillUpTable[models.Bookmark](nodeImplGongstruct.probe)
+	}
 	if nodeImplGongstruct.gongStruct.GetName() == "Foo" {
 		fillUpTable[models.Foo](nodeImplGongstruct.probe)
+	}
+	if nodeImplGongstruct.gongStruct.GetName() == "Link" {
+		fillUpTable[models.Link](nodeImplGongstruct.probe)
+	}
+	if nodeImplGongstruct.gongStruct.GetName() == "Lyric" {
+		fillUpTable[models.Lyric](nodeImplGongstruct.probe)
+	}
+	if nodeImplGongstruct.gongStruct.GetName() == "Lyric_font" {
+		fillUpTable[models.Lyric_font](nodeImplGongstruct.probe)
+	}
+	if nodeImplGongstruct.gongStruct.GetName() == "Lyric_language" {
+		fillUpTable[models.Lyric_language](nodeImplGongstruct.probe)
+	}
+	if nodeImplGongstruct.gongStruct.GetName() == "Miscellaneous_field" {
+		fillUpTable[models.Miscellaneous_field](nodeImplGongstruct.probe)
 	}
 
 	// set color for node and reset all other nodes color

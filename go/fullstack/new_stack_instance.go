@@ -44,7 +44,13 @@ func NewStackInstance(
 
 	// add orchestration
 	// insertion point
+	models.SetOrchestratorOnAfterUpdate[models.Bookmark](stage)
 	models.SetOrchestratorOnAfterUpdate[models.Foo](stage)
+	models.SetOrchestratorOnAfterUpdate[models.Link](stage)
+	models.SetOrchestratorOnAfterUpdate[models.Lyric](stage)
+	models.SetOrchestratorOnAfterUpdate[models.Lyric_font](stage)
+	models.SetOrchestratorOnAfterUpdate[models.Lyric_language](stage)
+	models.SetOrchestratorOnAfterUpdate[models.Miscellaneous_field](stage)
 
 	return
 }

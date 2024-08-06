@@ -65,9 +65,46 @@ Problem
 
 go/probe/enum_type_to_form.go
 
-		if field.CodeValues()[1] == optionValue {
-			formFieldSelect.Value = option
-		}
+patch to gongc OK (505)    
 
-        
-2. 
+## compiling the struct
+
+### issue with undefined: IDREF compilerUndeclaredName
+
+missing def
+
+### issue with soap.Datetime
+
+```go
+	// Time signatures are represented by the beats element for the
+	// numerator and the beat-type element for the denominator.
+	Time []soap.XSDTime `xml:"time,omitempty" json:"time,omitempty"`
+```
+
+### issue with redeclarations
+
+```go
+	Segno *Segno `xml:"segno,omitempty" json:"segno,omitempty"`
+
+	Coda *Coda `xml:"coda,omitempty" json:"coda,omitempty"`
+
+	Segno string `xml:"segno,attr,omitempty" json:"segno,omitempty"`
+
+	Coda string `xml:"coda,attr,omitempty" json:"coda,omitempty"`
+```
+
+### general issue
+
+hard to pin down
+
+there a 2296 lines in structs.go
+
+bisect
+
+1000
+
+```go
+type string struct {
+	Value *String_number `xml:",chardata" json:"-,"`
+}
+```

@@ -62,6 +62,16 @@ func fillUpTree(
 
 		switch gongStruct.Name {
 		// insertion point
+		case "Bookmark":
+			nodeGongstruct.Name = name
+			set := *models.GetGongstructInstancesSet[models.Bookmark](probe.stageOfInterest)
+			for _bookmark := range set {
+				nodeInstance := (&tree.Node{Name: _bookmark.GetName()}).Stage(probe.treeStage)
+				nodeInstance.IsNodeClickable = true
+				nodeInstance.Impl = NewInstanceNodeCallback(_bookmark, "Bookmark", probe)
+
+				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
+			}
 		case "Foo":
 			nodeGongstruct.Name = name
 			set := *models.GetGongstructInstancesSet[models.Foo](probe.stageOfInterest)
@@ -69,6 +79,56 @@ func fillUpTree(
 				nodeInstance := (&tree.Node{Name: _foo.GetName()}).Stage(probe.treeStage)
 				nodeInstance.IsNodeClickable = true
 				nodeInstance.Impl = NewInstanceNodeCallback(_foo, "Foo", probe)
+
+				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
+			}
+		case "Link":
+			nodeGongstruct.Name = name
+			set := *models.GetGongstructInstancesSet[models.Link](probe.stageOfInterest)
+			for _link := range set {
+				nodeInstance := (&tree.Node{Name: _link.GetName()}).Stage(probe.treeStage)
+				nodeInstance.IsNodeClickable = true
+				nodeInstance.Impl = NewInstanceNodeCallback(_link, "Link", probe)
+
+				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
+			}
+		case "Lyric":
+			nodeGongstruct.Name = name
+			set := *models.GetGongstructInstancesSet[models.Lyric](probe.stageOfInterest)
+			for _lyric := range set {
+				nodeInstance := (&tree.Node{Name: _lyric.GetName()}).Stage(probe.treeStage)
+				nodeInstance.IsNodeClickable = true
+				nodeInstance.Impl = NewInstanceNodeCallback(_lyric, "Lyric", probe)
+
+				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
+			}
+		case "Lyric_font":
+			nodeGongstruct.Name = name
+			set := *models.GetGongstructInstancesSet[models.Lyric_font](probe.stageOfInterest)
+			for _lyric_font := range set {
+				nodeInstance := (&tree.Node{Name: _lyric_font.GetName()}).Stage(probe.treeStage)
+				nodeInstance.IsNodeClickable = true
+				nodeInstance.Impl = NewInstanceNodeCallback(_lyric_font, "Lyric_font", probe)
+
+				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
+			}
+		case "Lyric_language":
+			nodeGongstruct.Name = name
+			set := *models.GetGongstructInstancesSet[models.Lyric_language](probe.stageOfInterest)
+			for _lyric_language := range set {
+				nodeInstance := (&tree.Node{Name: _lyric_language.GetName()}).Stage(probe.treeStage)
+				nodeInstance.IsNodeClickable = true
+				nodeInstance.Impl = NewInstanceNodeCallback(_lyric_language, "Lyric_language", probe)
+
+				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
+			}
+		case "Miscellaneous_field":
+			nodeGongstruct.Name = name
+			set := *models.GetGongstructInstancesSet[models.Miscellaneous_field](probe.stageOfInterest)
+			for _miscellaneous_field := range set {
+				nodeInstance := (&tree.Node{Name: _miscellaneous_field.GetName()}).Stage(probe.treeStage)
+				nodeInstance.IsNodeClickable = true
+				nodeInstance.Impl = NewInstanceNodeCallback(_miscellaneous_field, "Miscellaneous_field", probe)
 
 				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
 			}

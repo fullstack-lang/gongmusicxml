@@ -2447,3 +2447,2296 @@ const (
 
 	Swing_type_valueEighth Swing_type_value = "eighth"
 )
+
+type Score_partwise struct {
+	XMLName xml.Name `xml:" score-partwise"`
+
+	Part []struct {
+		Measure []struct {
+		} `xml:"measure,omitempty" json:"measure,omitempty"`
+	} `xml:"part,omitempty" json:"part,omitempty"`
+}
+
+type Score_timewise struct {
+	XMLName xml.Name `xml:" score-timewise"`
+
+	Measure []struct {
+		Part []struct {
+		} `xml:"part,omitempty" json:"part,omitempty"`
+	} `xml:"measure,omitempty" json:"measure,omitempty"`
+}
+
+type Accidental_text struct {
+	Value *Accidental_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_accidental_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Coda struct {
+	Smufl *Smufl_coda_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Dynamics struct {
+	P *Empty `xml:"p,omitempty" json:"p,omitempty"`
+
+	Pp *Empty `xml:"pp,omitempty" json:"pp,omitempty"`
+
+	Ppp *Empty `xml:"ppp,omitempty" json:"ppp,omitempty"`
+
+	Pppp *Empty `xml:"pppp,omitempty" json:"pppp,omitempty"`
+
+	Ppppp *Empty `xml:"ppppp,omitempty" json:"ppppp,omitempty"`
+
+	Pppppp *Empty `xml:"pppppp,omitempty" json:"pppppp,omitempty"`
+
+	F *Empty `xml:"f,omitempty" json:"f,omitempty"`
+
+	Ff *Empty `xml:"ff,omitempty" json:"ff,omitempty"`
+
+	Fff *Empty `xml:"fff,omitempty" json:"fff,omitempty"`
+
+	Ffff *Empty `xml:"ffff,omitempty" json:"ffff,omitempty"`
+
+	Fffff *Empty `xml:"fffff,omitempty" json:"fffff,omitempty"`
+
+	Ffffff *Empty `xml:"ffffff,omitempty" json:"ffffff,omitempty"`
+
+	Mp *Empty `xml:"mp,omitempty" json:"mp,omitempty"`
+
+	Mf *Empty `xml:"mf,omitempty" json:"mf,omitempty"`
+
+	Sf *Empty `xml:"sf,omitempty" json:"sf,omitempty"`
+
+	Sfp *Empty `xml:"sfp,omitempty" json:"sfp,omitempty"`
+
+	Sfpp *Empty `xml:"sfpp,omitempty" json:"sfpp,omitempty"`
+
+	Fp *Empty `xml:"fp,omitempty" json:"fp,omitempty"`
+
+	Rf *Empty `xml:"rf,omitempty" json:"rf,omitempty"`
+
+	Rfz *Empty `xml:"rfz,omitempty" json:"rfz,omitempty"`
+
+	Sfz *Empty `xml:"sfz,omitempty" json:"sfz,omitempty"`
+
+	Sffz *Empty `xml:"sffz,omitempty" json:"sffz,omitempty"`
+
+	Fz *Empty `xml:"fz,omitempty" json:"fz,omitempty"`
+
+	N *Empty `xml:"n,omitempty" json:"n,omitempty"`
+
+	Pf *Empty `xml:"pf,omitempty" json:"pf,omitempty"`
+
+	Sfzp *Empty `xml:"sfzp,omitempty" json:"sfzp,omitempty"`
+
+	Other_dynamics *Other_text `xml:"other-dynamics,omitempty" json:"other-dynamics,omitempty"`
+}
+
+type Empty struct {
+}
+
+type Empty_placement struct {
+}
+
+type Empty_placement_smufl struct {
+}
+
+type Empty_print_style struct {
+}
+
+type Empty_print_style_align struct {
+}
+
+type Empty_print_style_align_id struct {
+}
+
+type Empty_print_object_style_align struct {
+}
+
+type Empty_trill_sound struct {
+}
+
+type Horizontal_turn struct {
+	Slash *Yes_no `xml:"slash,attr,omitempty" json:"slash,omitempty"`
+}
+
+type Fermata struct {
+	Value *Fermata_shape `xml:",chardata" json:"-,"`
+
+	Type *Upright_inverted `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Fingering struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Substitution *Yes_no `xml:"substitution,attr,omitempty" json:"substitution,omitempty"`
+
+	Alternate *Yes_no `xml:"alternate,attr,omitempty" json:"alternate,omitempty"`
+}
+
+type Formatted_symbol struct {
+	Value *Smufl_glyph_name `xml:",chardata" json:"-,"`
+}
+
+type Formatted_symbol_id struct {
+	Value *Smufl_glyph_name `xml:",chardata" json:"-,"`
+}
+
+type Formatted_text string
+
+type Formatted_text_id string
+
+type Fret struct {
+	Value uint32 `xml:",chardata" json:"-,"`
+}
+
+type Level struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Reference *Yes_no `xml:"reference,attr,omitempty" json:"reference,omitempty"`
+
+	Type *Start_stop_single `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Midi_device struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Port *Midi_16 `xml:"port,attr,omitempty" json:"port,omitempty"`
+
+	Id *IDREF `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Midi_instrument struct {
+
+	// The midi-channel element specifies a MIDI 1.0 channel numbers
+	// ranging from 1 to 16.
+	Midi_channel *Midi_16 `xml:"midi-channel,omitempty" json:"midi-channel,omitempty"`
+
+	// The midi-name element corresponds to a ProgramName meta-event
+	// within a Standard MIDI File.
+	Midi_name string `xml:"midi-name,omitempty" json:"midi-name,omitempty"`
+
+	// The midi-bank element specifies a MIDI 1.0 bank number ranging
+	// from 1 to 16,384.
+	Midi_bank *Midi_16384 `xml:"midi-bank,omitempty" json:"midi-bank,omitempty"`
+
+	// The midi-program element specifies a MIDI 1.0 program number
+	// ranging from 1 to 128.
+	Midi_program *Midi_128 `xml:"midi-program,omitempty" json:"midi-program,omitempty"`
+
+	// For unpitched instruments, the midi-unpitched element
+	// specifies a MIDI 1.0 note number ranging from 1 to 128. It is usually used
+	// with MIDI banks for percussion. Note that MIDI 1.0 note numbers are
+	// generally specified from 0 to 127 rather than the 1 to 128 numbering used in
+	// this element.
+	Midi_unpitched *Midi_128 `xml:"midi-unpitched,omitempty" json:"midi-unpitched,omitempty"`
+
+	// The volume element value is a percentage of the maximum
+	// ranging from 0 to 100, with decimal values allowed. This corresponds to a
+	// scaling value for the MIDI 1.0 channel volume controller.
+	Volume *Percent `xml:"volume,omitempty" json:"volume,omitempty"`
+
+	// The pan and elevation elements allow placing of sound in a 3-D
+	// space relative to the listener. Both are expressed in degrees ranging from
+	// -180 to 180. For pan, 0 is straight ahead, -90 is hard left, 90 is hard
+	// right, and -180 and 180 are directly behind the listener.
+	Pan *Rotation_degrees `xml:"pan,omitempty" json:"pan,omitempty"`
+
+	// The elevation and pan elements allow placing of sound in a 3-D
+	// space relative to the listener. Both are expressed in degrees ranging from
+	// -180 to 180. For elevation, 0 is level with the listener, 90 is directly
+	// above, and -90 is directly below.
+	Elevation *Rotation_degrees `xml:"elevation,omitempty" json:"elevation,omitempty"`
+
+	Id *IDREF `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Name_display struct {
+	Display_text *Formatted_text `xml:"display-text,omitempty" json:"display-text,omitempty"`
+
+	Accidental_text *Accidental_text `xml:"accidental-text,omitempty" json:"accidental-text,omitempty"`
+}
+
+type Other_play struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Play struct {
+
+	// The ipa element represents International Phonetic Alphabet
+	// (IPA) sounds for vocal music. String content is limited to IPA 2015
+	// symbols represented in Unicode 13.0.
+	Ipa string `xml:"ipa,omitempty" json:"ipa,omitempty"`
+
+	Mute *Mute `xml:"mute,omitempty" json:"mute,omitempty"`
+
+	Semi_pitched *Semi_pitched `xml:"semi-pitched,omitempty" json:"semi-pitched,omitempty"`
+
+	Other_play *Other_play `xml:"other-play,omitempty" json:"other-play,omitempty"`
+
+	Id *IDREF `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Segno struct {
+	Smufl *Smufl_segno_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+// type string struct {
+// 	Value *String_number `xml:",chardata" json:"-,"`
+// }
+
+type Typed_text struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Wavy_line struct {
+	Type *Start_stop_continue `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Smufl *Smufl_wavy_line_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Attributes struct {
+
+	// Musical notation duration is commonly represented as
+	// fractions. The divisions element indicates how many divisions per quarter
+	// note are used to indicate a note's duration. For example, if duration = 1
+	// and divisions = 2, this is an eighth note duration. Duration and divisions
+	// are used directly for generating sound output, so they must be chosen to
+	// take tuplets into account. Using a divisions element lets us use just one
+	// number to represent a duration for each note in the score, while retaining
+	// the full power of a fractional representation. If maximum compatibility with
+	// Standard MIDI 1.0 files is important, do not have the divisions value exceed
+	// 16383.
+	Divisions *Positive_divisions `xml:"divisions,omitempty" json:"divisions,omitempty"`
+
+	// The key element represents a key signature. Both traditional
+	// and non-traditional key signatures are supported. The optional number
+	// attribute refers to staff numbers. If absent, the key signature applies to
+	// all staves in the part.
+	Key []*Key `xml:"key,omitempty" json:"key,omitempty"`
+
+	// Time signatures are represented by the beats element for the
+	// numerator and the beat-type element for the denominator.
+	// Time []soap.XSDTime `xml:"time,omitempty" json:"time,omitempty"`
+
+	// The staves element is used if there is more than one staff
+	// represented in the given part (e.g., 2 staves for typical piano parts). If
+	// absent, a value of 1 is assumed. Staves are ordered from top to bottom in a
+	// part in numerical order, with staff 1 above staff 2.
+	Staves uint32 `xml:"staves,omitempty" json:"staves,omitempty"`
+
+	// The part-symbol element indicates how a symbol for a
+	// multi-staff part is indicated in the score.
+	Part_symbol *Part_symbol `xml:"part-symbol,omitempty" json:"part-symbol,omitempty"`
+
+	// The instruments element is only used if more than one
+	// instrument is represented in the part (e.g., oboe I and II where they play
+	// together most of the time). If absent, a value of 1 is assumed.
+	Instruments uint32 `xml:"instruments,omitempty" json:"instruments,omitempty"`
+
+	// Clefs are represented by a combination of sign, line, and
+	// clef-octave-change elements.
+	Clef []*Clef `xml:"clef,omitempty" json:"clef,omitempty"`
+
+	// The staff-details element is used to indicate different types
+	// of staves.
+	Staff_details []*Staff_details `xml:"staff-details,omitempty" json:"staff-details,omitempty"`
+
+	Directive []struct {
+		Value string `xml:",chardata" json:"-,"`
+
+		EmptyString string `xml:",attr,omitempty" json:",omitempty"`
+	} `xml:"directive,omitempty" json:"directive,omitempty"`
+
+	// A measure-style indicates a special way to print partial to
+	// multiple measures within a part. This includes multiple rests over several
+	// measures, repeats of beats, single, or multiple measures, and use of slash
+	// notation.
+	Measure_style []*Measure_style `xml:"measure-style,omitempty" json:"measure-style,omitempty"`
+
+	// If the part is being encoded for a transposing instrument
+	// in written vs. concert pitch, the transposition must be encoded in the
+	// transpose element using the transpose type.
+	Transpose []*Transpose `xml:"transpose,omitempty" json:"transpose,omitempty"`
+
+	// The for-part element is used in a concert score to
+	// indicate the transposition for a transposed part created from that
+	// score. It is only used in score files that contain a concert-score
+	// element in the defaults. This allows concert scores with transposed
+	// parts to be represented in a single uncompressed MusicXML file.
+	For_part []*For_part `xml:"for-part,omitempty" json:"for-part,omitempty"`
+}
+
+type Beat_repeat struct {
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Slashes *PositiveInteger `xml:"slashes,attr,omitempty" json:"slashes,omitempty"`
+
+	Use_dots *Yes_no `xml:"use-dots,attr,omitempty" json:"use-dots,omitempty"`
+}
+
+type Cancel struct {
+	Value *Fifths `xml:",chardata" json:"-,"`
+
+	Location *Cancel_location `xml:"location,attr,omitempty" json:"location,omitempty"`
+}
+
+type Clef struct {
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Additional *Yes_no `xml:"additional,attr,omitempty" json:"additional,omitempty"`
+
+	Size *Symbol_size `xml:"size,attr,omitempty" json:"size,omitempty"`
+
+	After_barline *Yes_no `xml:"after-barline,attr,omitempty" json:"after-barline,omitempty"`
+}
+
+type Double struct {
+	Above *Yes_no `xml:"above,attr,omitempty" json:"above,omitempty"`
+}
+
+type For_part struct {
+
+	// The part-clef element is used for transpositions that also
+	// include a change of clef, as for instruments such as bass clarinet.
+	Part_clef *Part_clef `xml:"part-clef,omitempty" json:"part-clef,omitempty"`
+
+	// The chromatic element in a part-transpose element will usually
+	// have a non-zero value, since octave transpositions can be represented in
+	// concert scores using the transpose element.
+	Part_transpose *Part_transpose `xml:"part-transpose,omitempty" json:"part-transpose,omitempty"`
+
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Interchangeable struct {
+	Time_relation *Time_relation `xml:"time-relation,omitempty" json:"time-relation,omitempty"`
+
+	Symbol *Time_symbol `xml:"symbol,attr,omitempty" json:"symbol,omitempty"`
+
+	Separator *Time_separator `xml:"separator,attr,omitempty" json:"separator,omitempty"`
+}
+
+type Key struct {
+
+	// The optional list of key-octave elements is used to specify in
+	// which octave each element of the key signature appears.
+	Key_octave []*Key_octave `xml:"key-octave,omitempty" json:"key-octave,omitempty"`
+
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Key_accidental struct {
+	Value *Accidental_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_accidental_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Key_octave struct {
+	Value *Octave `xml:",chardata" json:"-,"`
+
+	Number *PositiveInteger `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Cancel *Yes_no `xml:"cancel,attr,omitempty" json:"cancel,omitempty"`
+}
+
+type Line_detail struct {
+	Line *Staff_line `xml:"line,attr,omitempty" json:"line,omitempty"`
+
+	Width *Tenths `xml:"width,attr,omitempty" json:"width,omitempty"`
+}
+
+type Measure_repeat struct {
+	Value *Positive_integer_or_empty `xml:",chardata" json:"-,"`
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Slashes *PositiveInteger `xml:"slashes,attr,omitempty" json:"slashes,omitempty"`
+}
+
+type Measure_style struct {
+	Multiple_rest *Multiple_rest `xml:"multiple-rest,omitempty" json:"multiple-rest,omitempty"`
+
+	Measure_repeat *Measure_repeat `xml:"measure-repeat,omitempty" json:"measure-repeat,omitempty"`
+
+	Beat_repeat *Beat_repeat `xml:"beat-repeat,omitempty" json:"beat-repeat,omitempty"`
+
+	Slash *Slash `xml:"slash,omitempty" json:"slash,omitempty"`
+
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Multiple_rest struct {
+	Value *PositiveInteger `xml:",chardata" json:"-,"`
+
+	Use_symbols *Yes_no `xml:"use-symbols,attr,omitempty" json:"use-symbols,omitempty"`
+}
+
+type Part_clef struct {
+}
+
+type Part_symbol struct {
+	Value *Group_symbol_value `xml:",chardata" json:"-,"`
+
+	Top_staff *Staff_number `xml:"top-staff,attr,omitempty" json:"top-staff,omitempty"`
+
+	Bottom_staff *Staff_number `xml:"bottom-staff,attr,omitempty" json:"bottom-staff,omitempty"`
+}
+
+type Part_transpose struct {
+}
+
+type Slash struct {
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Use_dots *Yes_no `xml:"use-dots,attr,omitempty" json:"use-dots,omitempty"`
+
+	Use_stems *Yes_no `xml:"use-stems,attr,omitempty" json:"use-stems,omitempty"`
+}
+
+type Staff_details struct {
+	Staff_type *Staff_type `xml:"staff-type,omitempty" json:"staff-type,omitempty"`
+
+	Staff_tuning []*Staff_tuning `xml:"staff-tuning,omitempty" json:"staff-tuning,omitempty"`
+
+	// The capo element indicates at which fret a capo should be
+	// placed on a fretted instrument. This changes the open tuning of the strings
+	// specified by staff-tuning by the specified number of half-steps.
+	Capo uint32 `xml:"capo,omitempty" json:"capo,omitempty"`
+
+	Staff_size *Staff_size `xml:"staff-size,omitempty" json:"staff-size,omitempty"`
+
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Show_frets *Show_frets `xml:"show-frets,attr,omitempty" json:"show-frets,omitempty"`
+}
+
+type Staff_size struct {
+	Value *Non_negative_decimal `xml:",chardata" json:"-,"`
+
+	Scaling *Non_negative_decimal `xml:"scaling,attr,omitempty" json:"scaling,omitempty"`
+}
+
+type Staff_tuning struct {
+	Line *Staff_line `xml:"line,attr,omitempty" json:"line,omitempty"`
+}
+
+type Time struct {
+
+	// A senza-misura element explicitly indicates that no time
+	// signature is present. The optional element content indicates the symbol to
+	// be used, if any, such as an X. The time element's symbol attribute is not
+	// used when a senza-misura element is present.
+	Senza_misura string `xml:"senza-misura,omitempty" json:"senza-misura,omitempty"`
+
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Symbol *Time_symbol `xml:"symbol,attr,omitempty" json:"symbol,omitempty"`
+
+	Separator *Time_separator `xml:"separator,attr,omitempty" json:"separator,omitempty"`
+}
+
+type Transpose struct {
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Bar_style_color struct {
+	XMLName xml.Name `xml:" bar-style"`
+
+	Value *Bar_style `xml:",chardata" json:"-,"`
+}
+
+type Barline struct {
+	Bar_style *Bar_style_color `xml:"bar-style,omitempty" json:"bar-style,omitempty"`
+
+	Wavy_line *Wavy_line `xml:"wavy-line,omitempty" json:"wavy-line,omitempty"`
+
+	// Segno *Segno `xml:"segno,omitempty" json:"segno,omitempty"`
+
+	// Coda *Coda `xml:"coda,omitempty" json:"coda,omitempty"`
+
+	Fermata *Fermata `xml:"fermata,omitempty" json:"fermata,omitempty"`
+
+	Ending *Ending `xml:"ending,omitempty" json:"ending,omitempty"`
+
+	Repeat *Repeat `xml:"repeat,omitempty" json:"repeat,omitempty"`
+
+	Location *Right_left_middle `xml:"location,attr,omitempty" json:"location,omitempty"`
+
+	Segno string `xml:"segno,attr,omitempty" json:"segno,omitempty"`
+
+	Coda string `xml:"coda,attr,omitempty" json:"coda,omitempty"`
+
+	Divisions *Divisions `xml:"divisions,attr,omitempty" json:"divisions,omitempty"`
+}
+
+type Ending struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Number *Ending_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Type *Start_stop_discontinue `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	End_length *Tenths `xml:"end-length,attr,omitempty" json:"end-length,omitempty"`
+
+	Text_x *Tenths `xml:"text-x,attr,omitempty" json:"text-x,omitempty"`
+
+	Text_y *Tenths `xml:"text-y,attr,omitempty" json:"text-y,omitempty"`
+}
+
+type Repeat struct {
+	Direction *Backward_forward `xml:"direction,attr,omitempty" json:"direction,omitempty"`
+
+	Times uint32 `xml:"times,attr,omitempty" json:"times,omitempty"`
+
+	After_jump *Yes_no `xml:"after-jump,attr,omitempty" json:"after-jump,omitempty"`
+
+	Winged *Winged `xml:"winged,attr,omitempty" json:"winged,omitempty"`
+}
+
+type Accord struct {
+	string *String_number `xml:"string,attr,omitempty" json:"string,omitempty"`
+}
+
+type Accordion_registration struct {
+
+	// The accordion-high element indicates the presence of a dot in
+	// the high (4') section of the registration symbol. This element is omitted if
+	// no dot is present.
+	Accordion_high *Empty `xml:"accordion-high,omitempty" json:"accordion-high,omitempty"`
+
+	// The accordion-middle element indicates the presence of 1 to 3
+	// dots in the middle (8') section of the registration symbol. This element is
+	// omitted if no dots are present.
+	Accordion_middle *Accordion_middle `xml:"accordion-middle,omitempty" json:"accordion-middle,omitempty"`
+
+	// The accordion-low element indicates the presence of a dot in
+	// the low (16') section of the registration symbol. This element is omitted if
+	// no dot is present.
+	Accordion_low *Empty `xml:"accordion-low,omitempty" json:"accordion-low,omitempty"`
+}
+
+type Barre struct {
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Bass struct {
+
+	// The optional bass-separator element indicates that text,
+	// rather than a line or slash, separates the bass from what precedes it.
+	Bass_separator *Style_text `xml:"bass-separator,omitempty" json:"bass-separator,omitempty"`
+
+	Bass_step *Bass_step `xml:"bass-step,omitempty" json:"bass-step,omitempty"`
+
+	// The bass-alter element represents the chromatic alteration of
+	// the bass of the current chord within the harmony element. In some chord
+	// styles, the text for the bass-step element may include bass-alter
+	// information. In that case, the print-object attribute of the bass-alter
+	// element can be set to no. The location attribute indicates whether the
+	// alteration should appear to the left or the right of the bass-step; it is
+	// right if not specified.
+	Bass_alter *Harmony_alter `xml:"bass-alter,omitempty" json:"bass-alter,omitempty"`
+
+	Arrangement *Harmony_arrangement `xml:"arrangement,attr,omitempty" json:"arrangement,omitempty"`
+}
+
+type Harmony_alter struct {
+	Value *Semitones `xml:",chardata" json:"-,"`
+
+	Location *Left_right `xml:"location,attr,omitempty" json:"location,omitempty"`
+}
+
+type Bass_step struct {
+	Value *Step `xml:",chardata" json:"-,"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+}
+
+type Beater struct {
+	Value *Beater_value `xml:",chardata" json:"-,"`
+
+	Tip *Tip_direction `xml:"tip,attr,omitempty" json:"tip,omitempty"`
+}
+
+type Beat_unit_tied struct {
+}
+
+type Bracket struct {
+	Type *Start_stop_continue `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Line_end *Line_end `xml:"line-end,attr,omitempty" json:"line-end,omitempty"`
+
+	End_length *Tenths `xml:"end-length,attr,omitempty" json:"end-length,omitempty"`
+}
+
+type Dashes struct {
+	Type *Start_stop_continue `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Degree struct {
+	Degree_value *Degree_value `xml:"degree-value,omitempty" json:"degree-value,omitempty"`
+
+	Degree_alter *Degree_alter `xml:"degree-alter,omitempty" json:"degree-alter,omitempty"`
+
+	Degree_type *Degree_type `xml:"degree-type,omitempty" json:"degree-type,omitempty"`
+}
+
+type Degree_alter struct {
+	Value *Semitones `xml:",chardata" json:"-,"`
+
+	Plus_minus *Yes_no `xml:"plus-minus,attr,omitempty" json:"plus-minus,omitempty"`
+}
+
+type Degree_type struct {
+	Value *Degree_type_value `xml:",chardata" json:"-,"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+}
+
+type Degree_value struct {
+	Value *PositiveInteger `xml:",chardata" json:"-,"`
+
+	Symbol *Degree_symbol_value `xml:"symbol,attr,omitempty" json:"symbol,omitempty"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+}
+
+type Direction struct {
+	Direction_type []*Direction_type `xml:"direction-type,omitempty" json:"direction-type,omitempty"`
+
+	Offset *Offset `xml:"offset,omitempty" json:"offset,omitempty"`
+
+	Sound *Sound `xml:"sound,omitempty" json:"sound,omitempty"`
+
+	Listening *Listening `xml:"listening,omitempty" json:"listening,omitempty"`
+}
+
+type Direction_type struct {
+
+	// The rehearsal element specifies letters, numbers, and section
+	// names that are notated in the score for reference during rehearsal. The
+	// enclosure is square if not specified. The language is Italian ("it") if not
+	// specified. Left justification is used if not specified.
+	Rehearsal []*Formatted_text_id `xml:"rehearsal,omitempty" json:"rehearsal,omitempty"`
+
+	Segno []*Segno `xml:"segno,omitempty" json:"segno,omitempty"`
+
+	Coda []*Coda `xml:"coda,omitempty" json:"coda,omitempty"`
+
+	Wedge *Wedge `xml:"wedge,omitempty" json:"wedge,omitempty"`
+
+	Dynamics []*Dynamics `xml:"dynamics,omitempty" json:"dynamics,omitempty"`
+
+	Dashes *Dashes `xml:"dashes,omitempty" json:"dashes,omitempty"`
+
+	Bracket *Bracket `xml:"bracket,omitempty" json:"bracket,omitempty"`
+
+	Pedal *Pedal `xml:"pedal,omitempty" json:"pedal,omitempty"`
+
+	Metronome *Metronome `xml:"metronome,omitempty" json:"metronome,omitempty"`
+
+	Octave_shift *Octave_shift `xml:"octave-shift,omitempty" json:"octave-shift,omitempty"`
+
+	Harp_pedals *Harp_pedals `xml:"harp-pedals,omitempty" json:"harp-pedals,omitempty"`
+
+	// The damp element specifies a harp damping mark.
+	Damp *Empty_print_style_align_id `xml:"damp,omitempty" json:"damp,omitempty"`
+
+	// The damp-all element specifies a harp damping mark for all
+	// strings.
+	Damp_all *Empty_print_style_align_id `xml:"damp-all,omitempty" json:"damp-all,omitempty"`
+
+	// The eyeglasses element represents the eyeglasses symbol,
+	// common in commercial music.
+	Eyeglasses *Empty_print_style_align_id `xml:"eyeglasses,omitempty" json:"eyeglasses,omitempty"`
+
+	String_mute *String_mute `xml:"string-mute,omitempty" json:"string-mute,omitempty"`
+
+	Scordatura *Scordatura `xml:"scordatura,omitempty" json:"scordatura,omitempty"`
+
+	Image *Image `xml:"image,omitempty" json:"image,omitempty"`
+
+	Principal_voice *Principal_voice `xml:"principal-voice,omitempty" json:"principal-voice,omitempty"`
+
+	Percussion []*Percussion `xml:"percussion,omitempty" json:"percussion,omitempty"`
+
+	Accordion_registration *Accordion_registration `xml:"accordion-registration,omitempty" json:"accordion-registration,omitempty"`
+
+	Staff_divide *Staff_divide `xml:"staff-divide,omitempty" json:"staff-divide,omitempty"`
+
+	Other_direction *Other_direction `xml:"other-direction,omitempty" json:"other-direction,omitempty"`
+}
+
+type Effect struct {
+	Value *Effect_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_pictogram_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Feature struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type First_fret struct {
+	Value *PositiveInteger `xml:",chardata" json:"-,"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+
+	Location *Left_right `xml:"location,attr,omitempty" json:"location,omitempty"`
+}
+
+type Frame struct {
+
+	// The frame-strings element gives the overall size of the frame
+	// in vertical lines (strings).
+	Frame_strings *PositiveInteger `xml:"frame-strings,omitempty" json:"frame-strings,omitempty"`
+
+	// The frame-frets element gives the overall size of the frame in
+	// horizontal spaces (frets).
+	Frame_frets *PositiveInteger `xml:"frame-frets,omitempty" json:"frame-frets,omitempty"`
+
+	First_fret *First_fret `xml:"first-fret,omitempty" json:"first-fret,omitempty"`
+
+	Frame_note []*Frame_note `xml:"frame-note,omitempty" json:"frame-note,omitempty"`
+
+	Height *Tenths `xml:"height,attr,omitempty" json:"height,omitempty"`
+
+	Width *Tenths `xml:"width,attr,omitempty" json:"width,omitempty"`
+
+	Unplayed string `xml:"unplayed,attr,omitempty" json:"unplayed,omitempty"`
+}
+
+type Frame_note struct {
+	Astring string `xml:"string,omitempty" json:"string,omitempty"`
+
+	Fret *Fret `xml:"fret,omitempty" json:"fret,omitempty"`
+
+	Fingering *Fingering `xml:"fingering,omitempty" json:"fingering,omitempty"`
+
+	Barre *Barre `xml:"barre,omitempty" json:"barre,omitempty"`
+}
+
+type Glass struct {
+	Value *Glass_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_pictogram_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Grouping struct {
+	Feature []*Feature `xml:"feature,omitempty" json:"feature,omitempty"`
+
+	Type *Start_stop_single `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number string `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Member_of string `xml:"member-of,attr,omitempty" json:"member-of,omitempty"`
+}
+
+type Harmony struct {
+	Frame *Frame `xml:"frame,omitempty" json:"frame,omitempty"`
+
+	Offset *Offset `xml:"offset,omitempty" json:"offset,omitempty"`
+
+	Type *Harmony_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Print_frame *Yes_no `xml:"print-frame,attr,omitempty" json:"print-frame,omitempty"`
+
+	Arrangement *Harmony_arrangement `xml:"arrangement,attr,omitempty" json:"arrangement,omitempty"`
+}
+
+type Harp_pedals struct {
+	Pedal_tuning []*Pedal_tuning `xml:"pedal-tuning,omitempty" json:"pedal-tuning,omitempty"`
+}
+
+type Image struct {
+}
+
+type Instrument_change struct {
+	Id *IDREF `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Inversion struct {
+	Value uint32 `xml:",chardata" json:"-,"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+}
+
+type Kind struct {
+	Value *Kind_value `xml:",chardata" json:"-,"`
+
+	Use_symbols *Yes_no `xml:"use-symbols,attr,omitempty" json:"use-symbols,omitempty"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+
+	Stack_degrees *Yes_no `xml:"stack-degrees,attr,omitempty" json:"stack-degrees,omitempty"`
+
+	Parentheses_degrees *Yes_no `xml:"parentheses-degrees,attr,omitempty" json:"parentheses-degrees,omitempty"`
+
+	Bracket_degrees *Yes_no `xml:"bracket-degrees,attr,omitempty" json:"bracket-degrees,omitempty"`
+}
+
+type Listening struct {
+	Offset *Offset `xml:"offset,omitempty" json:"offset,omitempty"`
+
+	Sync *Sync `xml:"sync,omitempty" json:"sync,omitempty"`
+
+	Other_listening *Other_listening `xml:"other-listening,omitempty" json:"other-listening,omitempty"`
+}
+
+type Measure_numbering struct {
+	Value *Measure_numbering_value `xml:",chardata" json:"-,"`
+
+	System *System_relation_number `xml:"system,attr,omitempty" json:"system,omitempty"`
+
+	Staff *Staff_number `xml:"staff,attr,omitempty" json:"staff,omitempty"`
+
+	Multiple_rest_always *Yes_no `xml:"multiple-rest-always,attr,omitempty" json:"multiple-rest-always,omitempty"`
+
+	Multiple_rest_range *Yes_no `xml:"multiple-rest-range,attr,omitempty" json:"multiple-rest-range,omitempty"`
+}
+
+type Membrane struct {
+	Value *Membrane_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_pictogram_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Metal struct {
+	Value *Metal_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_pictogram_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Metronome struct {
+	Parentheses *Yes_no `xml:"parentheses,attr,omitempty" json:"parentheses,omitempty"`
+}
+
+type Metronome_beam struct {
+	Value *Beam_value `xml:",chardata" json:"-,"`
+
+	Number *Beam_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Metronome_note struct {
+
+	// The metronome-type element works like the type element in
+	// defining metric relationships.
+	Metronome_type *Note_type_value `xml:"metronome-type,omitempty" json:"metronome-type,omitempty"`
+
+	// The metronome-dot element works like the dot element in
+	// defining metric relationships.
+	Metronome_dot []*Empty `xml:"metronome-dot,omitempty" json:"metronome-dot,omitempty"`
+
+	Metronome_beam []*Metronome_beam `xml:"metronome-beam,omitempty" json:"metronome-beam,omitempty"`
+
+	Metronome_tied *Metronome_tied `xml:"metronome-tied,omitempty" json:"metronome-tied,omitempty"`
+
+	Metronome_tuplet *Metronome_tuplet `xml:"metronome-tuplet,omitempty" json:"metronome-tuplet,omitempty"`
+}
+
+type Metronome_tied struct {
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Metronome_tuplet struct {
+	*Time_modification
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Bracket *Yes_no `xml:"bracket,attr,omitempty" json:"bracket,omitempty"`
+
+	Show_number *Show_tuplet `xml:"show-number,attr,omitempty" json:"show-number,omitempty"`
+}
+
+type Numeral struct {
+	Numeral_root *Numeral_root `xml:"numeral-root,omitempty" json:"numeral-root,omitempty"`
+
+	// The numeral-alter element represents an alteration to the
+	// numeral-root, similar to the alter element for a pitch. The print-object
+	// attribute can be used to hide an alteration in cases such as when the
+	// MusicXML encoding of a 6 or 7 numeral-root in a minor key requires an
+	// alteration that is not displayed. The location attribute indicates whether
+	// the alteration should appear to the left or the right of the numeral-root.
+	// It is left by default.
+	Numeral_alter *Harmony_alter `xml:"numeral-alter,omitempty" json:"numeral-alter,omitempty"`
+
+	Numeral_key *Numeral_key `xml:"numeral-key,omitempty" json:"numeral-key,omitempty"`
+}
+
+type Numeral_key struct {
+	Numeral_fifths *Fifths `xml:"numeral-fifths,omitempty" json:"numeral-fifths,omitempty"`
+
+	Numeral_mode *Numeral_mode `xml:"numeral-mode,omitempty" json:"numeral-mode,omitempty"`
+}
+
+type Numeral_root struct {
+	Value *Numeral_value `xml:",chardata" json:"-,"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+}
+
+type Octave_shift struct {
+	Type *Up_down_stop_continue `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Size *PositiveInteger `xml:"size,attr,omitempty" json:"size,omitempty"`
+}
+
+type Offset struct {
+	Value *Divisions `xml:",chardata" json:"-,"`
+
+	Sound *Yes_no `xml:"sound,attr,omitempty" json:"sound,omitempty"`
+}
+
+type Other_direction string
+
+type Other_listening struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Player *IDREF `xml:"player,attr,omitempty" json:"player,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+}
+
+type Pedal struct {
+	Type *Pedal_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Line *Yes_no `xml:"line,attr,omitempty" json:"line,omitempty"`
+
+	Sign *Yes_no `xml:"sign,attr,omitempty" json:"sign,omitempty"`
+
+	Abbreviated *Yes_no `xml:"abbreviated,attr,omitempty" json:"abbreviated,omitempty"`
+}
+
+type Pedal_tuning struct {
+
+	// The pedal-step element defines the pitch step for a single
+	// harp pedal.
+	Pedal_step *Step `xml:"pedal-step,omitempty" json:"pedal-step,omitempty"`
+
+	// The pedal-alter element defines the chromatic alteration for a
+	// single harp pedal.
+	Pedal_alter *Semitones `xml:"pedal-alter,omitempty" json:"pedal-alter,omitempty"`
+}
+
+type Per_minute string
+
+type Percussion struct {
+	Glass *Glass `xml:"glass,omitempty" json:"glass,omitempty"`
+
+	Metal *Metal `xml:"metal,omitempty" json:"metal,omitempty"`
+
+	Wood *Wood `xml:"wood,omitempty" json:"wood,omitempty"`
+
+	Pitched *Pitched `xml:"pitched,omitempty" json:"pitched,omitempty"`
+
+	Membrane *Membrane `xml:"membrane,omitempty" json:"membrane,omitempty"`
+
+	Effect *Effect `xml:"effect,omitempty" json:"effect,omitempty"`
+
+	Timpani *Timpani `xml:"timpani,omitempty" json:"timpani,omitempty"`
+
+	Beater *Beater `xml:"beater,omitempty" json:"beater,omitempty"`
+
+	Stick *Stick `xml:"stick,omitempty" json:"stick,omitempty"`
+
+	Stick_location *Stick_location `xml:"stick-location,omitempty" json:"stick-location,omitempty"`
+
+	// The other-percussion element represents percussion pictograms
+	// not defined elsewhere.
+	Other_percussion *Other_text `xml:"other-percussion,omitempty" json:"other-percussion,omitempty"`
+}
+
+type Pitched struct {
+	Value *Pitched_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_pictogram_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Principal_voice struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Symbol *Principal_voice_symbol `xml:"symbol,attr,omitempty" json:"symbol,omitempty"`
+}
+
+type Print struct {
+	Measure_layout *Measure_layout `xml:"measure-layout,omitempty" json:"measure-layout,omitempty"`
+
+	Measure_numbering *Measure_numbering `xml:"measure-numbering,omitempty" json:"measure-numbering,omitempty"`
+
+	Part_name_display *Name_display `xml:"part-name-display,omitempty" json:"part-name-display,omitempty"`
+
+	Part_abbreviation_display *Name_display `xml:"part-abbreviation-display,omitempty" json:"part-abbreviation-display,omitempty"`
+}
+
+type Root struct {
+	Root_step *Root_step `xml:"root-step,omitempty" json:"root-step,omitempty"`
+
+	// The root-alter element represents the chromatic alteration of
+	// the root of the current chord within the harmony element. In some chord
+	// styles, the text for the root-step element may include root-alter
+	// information. In that case, the print-object attribute of the root-alter
+	// element can be set to no. The location attribute indicates whether the
+	// alteration should appear to the left or the right of the root-step; it is
+	// right by default.
+	Root_alter *Harmony_alter `xml:"root-alter,omitempty" json:"root-alter,omitempty"`
+}
+
+type Root_step struct {
+	Value *Step `xml:",chardata" json:"-,"`
+
+	Text string `xml:"text,attr,omitempty" json:"text,omitempty"`
+}
+
+type Scordatura struct {
+	Accord []*Accord `xml:"accord,omitempty" json:"accord,omitempty"`
+}
+
+type Sound struct {
+	Swing *Swing `xml:"swing,omitempty" json:"swing,omitempty"`
+
+	Offset *Offset `xml:"offset,omitempty" json:"offset,omitempty"`
+
+	Tempo *Non_negative_decimal `xml:"tempo,attr,omitempty" json:"tempo,omitempty"`
+
+	Dynamics *Non_negative_decimal `xml:"dynamics,attr,omitempty" json:"dynamics,omitempty"`
+
+	Dacapo *Yes_no `xml:"dacapo,attr,omitempty" json:"dacapo,omitempty"`
+
+	Segno string `xml:"segno,attr,omitempty" json:"segno,omitempty"`
+
+	Dalsegno string `xml:"dalsegno,attr,omitempty" json:"dalsegno,omitempty"`
+
+	Coda string `xml:"coda,attr,omitempty" json:"coda,omitempty"`
+
+	Tocoda string `xml:"tocoda,attr,omitempty" json:"tocoda,omitempty"`
+
+	Divisions *Divisions `xml:"divisions,attr,omitempty" json:"divisions,omitempty"`
+
+	Forward_repeat *Yes_no `xml:"forward-repeat,attr,omitempty" json:"forward-repeat,omitempty"`
+
+	Fine string `xml:"fine,attr,omitempty" json:"fine,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+
+	Pizzicato *Yes_no `xml:"pizzicato,attr,omitempty" json:"pizzicato,omitempty"`
+
+	Pan *Rotation_degrees `xml:"pan,attr,omitempty" json:"pan,omitempty"`
+
+	Elevation *Rotation_degrees `xml:"elevation,attr,omitempty" json:"elevation,omitempty"`
+
+	Damper_pedal *Yes_no_number `xml:"damper-pedal,attr,omitempty" json:"damper-pedal,omitempty"`
+
+	Soft_pedal *Yes_no_number `xml:"soft-pedal,attr,omitempty" json:"soft-pedal,omitempty"`
+
+	Sostenuto_pedal *Yes_no_number `xml:"sostenuto-pedal,attr,omitempty" json:"sostenuto-pedal,omitempty"`
+}
+
+type Staff_divide struct {
+	Type *Staff_divide_symbol `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Stick struct {
+	Stick_type *Stick_type `xml:"stick-type,omitempty" json:"stick-type,omitempty"`
+
+	Stick_material *Stick_material `xml:"stick-material,omitempty" json:"stick-material,omitempty"`
+
+	Tip *Tip_direction `xml:"tip,attr,omitempty" json:"tip,omitempty"`
+
+	Parentheses *Yes_no `xml:"parentheses,attr,omitempty" json:"parentheses,omitempty"`
+
+	Dashed_circle *Yes_no `xml:"dashed-circle,attr,omitempty" json:"dashed-circle,omitempty"`
+}
+
+type String_mute struct {
+	Type *On_off `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Swing struct {
+	Swing_style string `xml:"swing-style,omitempty" json:"swing-style,omitempty"`
+
+	Straight *Empty `xml:"straight,omitempty" json:"straight,omitempty"`
+}
+
+type Sync struct {
+	Type *Sync_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Latency *Milliseconds `xml:"latency,attr,omitempty" json:"latency,omitempty"`
+
+	Player *IDREF `xml:"player,attr,omitempty" json:"player,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+}
+
+type Timpani struct {
+	Smufl *Smufl_pictogram_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Wedge struct {
+	Type *Wedge_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Spread *Tenths `xml:"spread,attr,omitempty" json:"spread,omitempty"`
+
+	Niente *Yes_no `xml:"niente,attr,omitempty" json:"niente,omitempty"`
+}
+
+type Wood struct {
+	Value *Wood_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_pictogram_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Encoding struct {
+	Encoding_date *Yyyy_mm_dd `xml:"encoding-date,omitempty" json:"encoding-date,omitempty"`
+
+	Encoder *Typed_text `xml:"encoder,omitempty" json:"encoder,omitempty"`
+
+	Software string `xml:"software,omitempty" json:"software,omitempty"`
+
+	Encoding_description string `xml:"encoding-description,omitempty" json:"encoding-description,omitempty"`
+
+	Supports *Supports `xml:"supports,omitempty" json:"supports,omitempty"`
+}
+
+type Identification struct {
+
+	// The creator element is borrowed from Dublin Core. It is used
+	// for the creators of the score. The type attribute is used to distinguish
+	// different creative contributions. Thus, there can be multiple creators
+	// within an identification. Standard type values are composer, lyricist, and
+	// arranger. Other type values may be used for different types of creative
+	// roles. The type attribute should usually be used even if there is just a
+	// single creator element. The MusicXML format does not use the creator /
+	// contributor distinction from Dublin Core.
+	Creator []*Typed_text `xml:"creator,omitempty" json:"creator,omitempty"`
+
+	// The rights element is borrowed from Dublin Core. It contains
+	// copyright and other intellectual property notices. Words, music, and
+	// derivatives can have different types, so multiple rights elements with
+	// different type attributes are supported. Standard type values are music,
+	// words, and arrangement, but other types may be used. The type attribute is
+	// only needed when there are multiple rights elements.
+	Rights []*Typed_text `xml:"rights,omitempty" json:"rights,omitempty"`
+
+	Encoding *Encoding `xml:"encoding,omitempty" json:"encoding,omitempty"`
+
+	// The source for the music that is encoded. This is similar to
+	// the Dublin Core source element.
+	Source string `xml:"source,omitempty" json:"source,omitempty"`
+
+	// A related resource for the music that is encoded. This is
+	// similar to the Dublin Core relation element. Standard type values are music,
+	// words, and arrangement, but other types may be used.
+	Relation []*Typed_text `xml:"relation,omitempty" json:"relation,omitempty"`
+
+	Miscellaneous *Miscellaneous `xml:"miscellaneous,omitempty" json:"miscellaneous,omitempty"`
+}
+
+type Miscellaneous struct {
+	Miscellaneous_field []*Miscellaneous_field `xml:"miscellaneous-field,omitempty" json:"miscellaneous-field,omitempty"`
+}
+
+type Miscellaneous_field struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
+}
+
+type Supports struct {
+	Type *Yes_no `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Element *NMTOKEN `xml:"element,attr,omitempty" json:"element,omitempty"`
+
+	Attribute *NMTOKEN `xml:"attribute,attr,omitempty" json:"attribute,omitempty"`
+
+	Value string `xml:"value,attr,omitempty" json:"value,omitempty"`
+}
+
+type Appearance struct {
+	Line_width []*Line_width `xml:"line-width,omitempty" json:"line-width,omitempty"`
+
+	Note_size []*Note_size `xml:"note-size,omitempty" json:"note-size,omitempty"`
+
+	Distance []*Distance `xml:"distance,omitempty" json:"distance,omitempty"`
+
+	Glyph []*Glyph `xml:"glyph,omitempty" json:"glyph,omitempty"`
+
+	Other_appearance []*Other_appearance `xml:"other-appearance,omitempty" json:"other-appearance,omitempty"`
+}
+
+type Distance struct {
+	Value *Tenths `xml:",chardata" json:"-,"`
+
+	Type *Distance_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Glyph struct {
+	Value *Smufl_glyph_name `xml:",chardata" json:"-,"`
+
+	Type *Glyph_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Line_width struct {
+	Value *Tenths `xml:",chardata" json:"-,"`
+
+	Type *Line_width_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Measure_layout struct {
+
+	// The measure-distance element specifies the horizontal distance
+	// from the previous measure. This value is only used for systems where there
+	// is horizontal whitespace in the middle of a system, as in systems with
+	// codas. To specify the measure width, use the width attribute of the measure
+	// element.
+	Measure_distance *Tenths `xml:"measure-distance,omitempty" json:"measure-distance,omitempty"`
+}
+
+type Note_size struct {
+	Value *Non_negative_decimal `xml:",chardata" json:"-,"`
+
+	Type *Note_size_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Other_appearance struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Page_layout struct {
+	Page_margins *Page_margins `xml:"page-margins,omitempty" json:"page-margins,omitempty"`
+}
+
+type Page_margins struct {
+	Type *Margin_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Scaling struct {
+	Millimeters *Millimeters `xml:"millimeters,omitempty" json:"millimeters,omitempty"`
+
+	Tenths *Tenths `xml:"tenths,omitempty" json:"tenths,omitempty"`
+}
+
+type Staff_layout struct {
+	Staff_distance *Tenths `xml:"staff-distance,omitempty" json:"staff-distance,omitempty"`
+
+	Number *Staff_number `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type System_dividers struct {
+	Left_divider *Empty_print_object_style_align `xml:"left-divider,omitempty" json:"left-divider,omitempty"`
+
+	Right_divider *Empty_print_object_style_align `xml:"right-divider,omitempty" json:"right-divider,omitempty"`
+}
+
+type System_layout struct {
+	System_margins *System_margins `xml:"system-margins,omitempty" json:"system-margins,omitempty"`
+
+	System_distance *Tenths `xml:"system-distance,omitempty" json:"system-distance,omitempty"`
+
+	Top_system_distance *Tenths `xml:"top-system-distance,omitempty" json:"top-system-distance,omitempty"`
+
+	System_dividers *System_dividers `xml:"system-dividers,omitempty" json:"system-dividers,omitempty"`
+}
+
+type System_margins struct {
+}
+
+type Bookmark struct {
+	Id *ID_MUSICXML `xml:"id,attr,omitempty" json:"id,omitempty"`
+
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
+}
+
+type Link struct {
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
+}
+
+type Accidental struct {
+	Value *Accidental_value `xml:",chardata" json:"-,"`
+
+	Cautionary *Yes_no `xml:"cautionary,attr,omitempty" json:"cautionary,omitempty"`
+
+	Editorial *Yes_no `xml:"editorial,attr,omitempty" json:"editorial,omitempty"`
+
+	Smufl *Smufl_accidental_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Accidental_mark struct {
+	Value *Accidental_value `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_accidental_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Arpeggiate struct {
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Direction *Up_down `xml:"direction,attr,omitempty" json:"direction,omitempty"`
+
+	Unbroken *Yes_no `xml:"unbroken,attr,omitempty" json:"unbroken,omitempty"`
+}
+
+type Articulations struct {
+
+	// The accent element indicates a regular horizontal accent mark.
+	Accent *Empty_placement `xml:"accent,omitempty" json:"accent,omitempty"`
+
+	// The strong-accent element indicates a vertical accent mark.
+	Strong_accent *Strong_accent `xml:"strong-accent,omitempty" json:"strong-accent,omitempty"`
+
+	// The staccato element is used for a dot articulation, as
+	// opposed to a stroke or a wedge.
+	Staccato *Empty_placement `xml:"staccato,omitempty" json:"staccato,omitempty"`
+
+	// The tenuto element indicates a tenuto line symbol.
+	Tenuto *Empty_placement `xml:"tenuto,omitempty" json:"tenuto,omitempty"`
+
+	// The detached-legato element indicates the combination of a
+	// tenuto line and staccato dot symbol.
+	Detached_legato *Empty_placement `xml:"detached-legato,omitempty" json:"detached-legato,omitempty"`
+
+	// The staccatissimo element is used for a wedge articulation, as
+	// opposed to a dot or a stroke.
+	Staccatissimo *Empty_placement `xml:"staccatissimo,omitempty" json:"staccatissimo,omitempty"`
+
+	// The spiccato element is used for a stroke articulation, as
+	// opposed to a dot or a wedge.
+	Spiccato *Empty_placement `xml:"spiccato,omitempty" json:"spiccato,omitempty"`
+
+	// The scoop element is an indeterminate slide attached to a
+	// single note. The scoop appears before the main note and comes from below the
+	// main pitch.
+	Scoop *Empty_line `xml:"scoop,omitempty" json:"scoop,omitempty"`
+
+	// The plop element is an indeterminate slide attached to a
+	// single note. The plop appears before the main note and comes from above the
+	// main pitch.
+	Plop *Empty_line `xml:"plop,omitempty" json:"plop,omitempty"`
+
+	// The doit element is an indeterminate slide attached to a
+	// single note. The doit appears after the main note and goes above the main
+	// pitch.
+	Doit *Empty_line `xml:"doit,omitempty" json:"doit,omitempty"`
+
+	// The falloff element is an indeterminate slide attached to a
+	// single note. The falloff appears after the main note and goes below the main
+	// pitch.
+	Falloff *Empty_line `xml:"falloff,omitempty" json:"falloff,omitempty"`
+
+	Breath_mark *Breath_mark `xml:"breath-mark,omitempty" json:"breath-mark,omitempty"`
+
+	Caesura *Caesura `xml:"caesura,omitempty" json:"caesura,omitempty"`
+
+	// The stress element indicates a stressed note.
+	Stress *Empty_placement `xml:"stress,omitempty" json:"stress,omitempty"`
+
+	// The unstress element indicates an unstressed note. It is often
+	// notated using a u-shaped symbol.
+	Unstress *Empty_placement `xml:"unstress,omitempty" json:"unstress,omitempty"`
+
+	// The soft-accent element indicates a soft accent that is not as
+	// heavy as a normal accent. It is often notated as <>. It can be
+	// combined with other articulations to implement the first eight symbols in
+	// the SMuFL Articulation supplement range.
+	Soft_accent *Empty_placement `xml:"soft-accent,omitempty" json:"soft-accent,omitempty"`
+
+	// The other-articulation element is used to define any
+	// articulations not yet in the MusicXML format. The smufl attribute can be
+	// used to specify a particular articulation, allowing application
+	// interoperability without requiring every SMuFL articulation to have a
+	// MusicXML element equivalent. Using the other-articulation element without
+	// the smufl attribute allows for extended representation, though without
+	// application interoperability.
+	Other_articulation *Other_placement_text `xml:"other-articulation,omitempty" json:"other-articulation,omitempty"`
+}
+
+type Arrow struct {
+	Circular_arrow *Circular_arrow `xml:"circular-arrow,omitempty" json:"circular-arrow,omitempty"`
+}
+
+type Assess struct {
+	Type *Yes_no `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Player *IDREF `xml:"player,attr,omitempty" json:"player,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+}
+
+type Backup struct {
+}
+
+type Beam struct {
+	Value *Beam_value `xml:",chardata" json:"-,"`
+
+	Number *Beam_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Repeater *Yes_no `xml:"repeater,attr,omitempty" json:"repeater,omitempty"`
+
+	Fan *Fan `xml:"fan,attr,omitempty" json:"fan,omitempty"`
+}
+
+type Bend struct {
+
+	// The bend-alter element indicates the number of semitones in
+	// the bend, similar to the alter element. As with the alter element, numbers
+	// like 0.5 can be used to indicate microtones. Negative values indicate
+	// pre-bends or releases. The pre-bend and release elements are used to
+	// distinguish what is intended. Because the bend-alter element represents the
+	// number of steps in the bend, a release after a bend has a negative
+	// bend-alter value, not a zero value.
+	Bend_alter *Semitones `xml:"bend-alter,omitempty" json:"bend-alter,omitempty"`
+
+	// The with-bar element indicates that the bend is to be done at
+	// the bridge with a whammy or vibrato bar. The content of the element
+	// indicates how this should be notated. Content values of "scoop" and "dip"
+	// refer to the SMuFL guitarVibratoBarScoop and guitarVibratoBarDip glyphs.
+	With_bar *Placement_text `xml:"with-bar,omitempty" json:"with-bar,omitempty"`
+
+	// The pre-bend element indicates that a bend is a pre-bend
+	// rather than a normal bend or a release.
+	Pre_bend *Empty `xml:"pre-bend,omitempty" json:"pre-bend,omitempty"`
+
+	Release *Release `xml:"release,omitempty" json:"release,omitempty"`
+
+	Shape *Bend_shape `xml:"shape,attr,omitempty" json:"shape,omitempty"`
+}
+
+type Breath_mark struct {
+	Value *Breath_mark_value `xml:",chardata" json:"-,"`
+}
+
+type Caesura struct {
+	Value *Caesura_value `xml:",chardata" json:"-,"`
+}
+
+type Elision struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Smufl *Smufl_lyrics_glyph_name `xml:"smufl,attr,omitempty" json:"smufl,omitempty"`
+}
+
+type Empty_line struct {
+}
+
+type Extend struct {
+	Type *Start_stop_continue `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Figure struct {
+
+	// Values for the prefix element include plus and the accidental
+	// values sharp, flat, natural, double-sharp, flat-flat, and sharp-sharp. The
+	// prefix element may contain additional values for symbols specific to
+	// particular figured bass styles.
+	Prefix *Style_text `xml:"prefix,omitempty" json:"prefix,omitempty"`
+
+	// A figure-number is a number. Overstrikes of the figure number
+	// are represented in the suffix element.
+	Figure_number *Style_text `xml:"figure-number,omitempty" json:"figure-number,omitempty"`
+
+	// Values for the suffix element include plus and the accidental
+	// values sharp, flat, natural, double-sharp, flat-flat, and sharp-sharp.
+	// Suffixes include both symbols that come after the figure number and those
+	// that overstrike the figure number. The suffix values slash, back-slash, and
+	// vertical are used for slashed numbers indicating chromatic alteration. The
+	// orientation and display of the slash usually depends on the figure number.
+	// The suffix element may contain additional values for symbols specific to
+	// particular figured bass styles.
+	Suffix *Style_text `xml:"suffix,omitempty" json:"suffix,omitempty"`
+
+	Extend *Extend `xml:"extend,omitempty" json:"extend,omitempty"`
+}
+
+type Figured_bass struct {
+	Figure []*Figure `xml:"figure,omitempty" json:"figure,omitempty"`
+
+	Parentheses *Yes_no `xml:"parentheses,attr,omitempty" json:"parentheses,omitempty"`
+}
+
+type Forward struct {
+}
+
+type Glissando struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Grace struct {
+	Steal_time_previous *Percent `xml:"steal-time-previous,attr,omitempty" json:"steal-time-previous,omitempty"`
+
+	Steal_time_following *Percent `xml:"steal-time-following,attr,omitempty" json:"steal-time-following,omitempty"`
+
+	Make_time *Divisions `xml:"make-time,attr,omitempty" json:"make-time,omitempty"`
+
+	Slash *Yes_no `xml:"slash,attr,omitempty" json:"slash,omitempty"`
+}
+
+type Hammer_on_pull_off struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Handbell struct {
+	Value *Handbell_value `xml:",chardata" json:"-,"`
+}
+
+type Harmon_closed struct {
+	Value *Harmon_closed_value `xml:",chardata" json:"-,"`
+
+	Location *Harmon_closed_location `xml:"location,attr,omitempty" json:"location,omitempty"`
+}
+
+type Harmon_mute struct {
+	Harmon_closed *Harmon_closed `xml:"harmon-closed,omitempty" json:"harmon-closed,omitempty"`
+}
+
+type Harmonic struct {
+
+	// The natural element indicates that this is a natural
+	// harmonic. These are usually notated at base pitch rather than sounding
+	// pitch.
+	Natural *Empty `xml:"natural,omitempty" json:"natural,omitempty"`
+
+	// The artificial element indicates that this is an
+	// artificial harmonic.
+	Artificial *Empty `xml:"artificial,omitempty" json:"artificial,omitempty"`
+
+	// The base pitch is the pitch at which the string is played
+	// before touching to create the harmonic.
+	Base_pitch *Empty `xml:"base-pitch,omitempty" json:"base-pitch,omitempty"`
+
+	// The touching-pitch is the pitch at which the string is
+	// touched lightly to produce the harmonic.
+	Touching_pitch *Empty `xml:"touching-pitch,omitempty" json:"touching-pitch,omitempty"`
+
+	// The sounding-pitch is the pitch which is heard when
+	// playing the harmonic.
+	Sounding_pitch *Empty `xml:"sounding-pitch,omitempty" json:"sounding-pitch,omitempty"`
+}
+
+type Heel_toe struct {
+	*Empty_placement
+
+	Substitution *Yes_no `xml:"substitution,attr,omitempty" json:"substitution,omitempty"`
+}
+
+type Hole struct {
+
+	// The content of the optional hole-type element indicates what
+	// the hole symbol represents in terms of instrument fingering or other
+	// techniques.
+	Hole_type string `xml:"hole-type,omitempty" json:"hole-type,omitempty"`
+
+	Hole_closed *Hole_closed `xml:"hole-closed,omitempty" json:"hole-closed,omitempty"`
+
+	// The optional hole-shape element indicates the shape of the
+	// hole symbol; the default is a circle.
+	Hole_shape string `xml:"hole-shape,omitempty" json:"hole-shape,omitempty"`
+}
+
+type Hole_closed struct {
+	Value *Hole_closed_value `xml:",chardata" json:"-,"`
+
+	Location *Hole_closed_location `xml:"location,attr,omitempty" json:"location,omitempty"`
+}
+
+type Instrument struct {
+	Id *IDREF `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Listen struct {
+	Assess *Assess `xml:"assess,omitempty" json:"assess,omitempty"`
+
+	Wait *Wait `xml:"wait,omitempty" json:"wait,omitempty"`
+
+	Other_listen *Other_listening `xml:"other-listen,omitempty" json:"other-listen,omitempty"`
+}
+
+type Lyric struct {
+
+	// The end-line element comes from RP-017 for Standard MIDI File
+	// Lyric meta-events. It facilitates lyric display for Karaoke and similar
+	// applications.
+	End_line *Empty `xml:"end-line,omitempty" json:"end-line,omitempty"`
+
+	// The end-paragraph element comes from RP-017 for Standard MIDI
+	// File Lyric meta-events. It facilitates lyric display for Karaoke and similar
+	// applications.
+	End_paragraph *Empty `xml:"end-paragraph,omitempty" json:"end-paragraph,omitempty"`
+
+	Extend *Extend `xml:"extend,omitempty" json:"extend,omitempty"`
+
+	// The laughing element represents a laughing voice.
+	Laughing *Empty `xml:"laughing,omitempty" json:"laughing,omitempty"`
+
+	// The humming element represents a humming voice.
+	Humming *Empty `xml:"humming,omitempty" json:"humming,omitempty"`
+
+	Number *NMTOKEN `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+}
+
+type Mordent struct {
+	*Empty_trill_sound
+
+	Long *Yes_no `xml:"long,attr,omitempty" json:"long,omitempty"`
+
+	Approach *Above_below `xml:"approach,attr,omitempty" json:"approach,omitempty"`
+
+	Departure *Above_below `xml:"departure,attr,omitempty" json:"departure,omitempty"`
+}
+
+type Non_arpeggiate struct {
+	Type *Top_bottom `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Notations struct {
+	Tied *Tied `xml:"tied,omitempty" json:"tied,omitempty"`
+
+	Slur *Slur `xml:"slur,omitempty" json:"slur,omitempty"`
+
+	Tuplet *Tuplet `xml:"tuplet,omitempty" json:"tuplet,omitempty"`
+
+	Glissando *Glissando `xml:"glissando,omitempty" json:"glissando,omitempty"`
+
+	Slide *Slide `xml:"slide,omitempty" json:"slide,omitempty"`
+
+	Ornaments *Ornaments `xml:"ornaments,omitempty" json:"ornaments,omitempty"`
+
+	Technical *Technical `xml:"technical,omitempty" json:"technical,omitempty"`
+
+	Articulations *Articulations `xml:"articulations,omitempty" json:"articulations,omitempty"`
+
+	Dynamics *Dynamics `xml:"dynamics,omitempty" json:"dynamics,omitempty"`
+
+	Fermata *Fermata `xml:"fermata,omitempty" json:"fermata,omitempty"`
+
+	Arpeggiate *Arpeggiate `xml:"arpeggiate,omitempty" json:"arpeggiate,omitempty"`
+
+	Non_arpeggiate *Non_arpeggiate `xml:"non-arpeggiate,omitempty" json:"non-arpeggiate,omitempty"`
+
+	Accidental_mark *Accidental_mark `xml:"accidental-mark,omitempty" json:"accidental-mark,omitempty"`
+
+	Other_notation *Other_notation `xml:"other-notation,omitempty" json:"other-notation,omitempty"`
+}
+
+type Note struct {
+	Instrument []*Instrument `xml:"instrument,omitempty" json:"instrument,omitempty"`
+
+	Type_ *Note_type `xml:"type,omitempty" json:"type,omitempty"`
+
+	// One dot element is used for each dot of prolongation. The
+	// placement attribute is used to specify whether the dot should appear above
+	// or below the staff line. It is ignored for notes that appear on a staff
+	// space.
+	Dot []*Empty_placement `xml:"dot,omitempty" json:"dot,omitempty"`
+
+	Accidental *Accidental `xml:"accidental,omitempty" json:"accidental,omitempty"`
+
+	Time_modification *Time_modification `xml:"time-modification,omitempty" json:"time-modification,omitempty"`
+
+	Stem *Stem `xml:"stem,omitempty" json:"stem,omitempty"`
+
+	Notehead *Notehead `xml:"notehead,omitempty" json:"notehead,omitempty"`
+
+	Notehead_text *Notehead_text `xml:"notehead-text,omitempty" json:"notehead-text,omitempty"`
+
+	Beam *Beam `xml:"beam,omitempty" json:"beam,omitempty"`
+
+	Notations []*Notations `xml:"notations,omitempty" json:"notations,omitempty"`
+
+	Lyric []*Lyric `xml:"lyric,omitempty" json:"lyric,omitempty"`
+
+	Play *Play `xml:"play,omitempty" json:"play,omitempty"`
+
+	Listen *Listen `xml:"listen,omitempty" json:"listen,omitempty"`
+
+	Print_leger *Yes_no `xml:"print-leger,attr,omitempty" json:"print-leger,omitempty"`
+
+	Dynamics *Non_negative_decimal `xml:"dynamics,attr,omitempty" json:"dynamics,omitempty"`
+
+	End_dynamics *Non_negative_decimal `xml:"end-dynamics,attr,omitempty" json:"end-dynamics,omitempty"`
+
+	Attack *Divisions `xml:"attack,attr,omitempty" json:"attack,omitempty"`
+
+	Release *Divisions `xml:"release,attr,omitempty" json:"release,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+
+	Pizzicato *Yes_no `xml:"pizzicato,attr,omitempty" json:"pizzicato,omitempty"`
+}
+
+type Note_type struct {
+	XMLName xml.Name `xml:" type"`
+
+	Value *Note_type_value `xml:",chardata" json:"-,"`
+
+	Size *Symbol_size `xml:"size,attr,omitempty" json:"size,omitempty"`
+}
+
+type Notehead struct {
+	Value *Notehead_value `xml:",chardata" json:"-,"`
+
+	Filled *Yes_no `xml:"filled,attr,omitempty" json:"filled,omitempty"`
+
+	Parentheses *Yes_no `xml:"parentheses,attr,omitempty" json:"parentheses,omitempty"`
+}
+
+type Notehead_text struct {
+	Display_text *Formatted_text `xml:"display-text,omitempty" json:"display-text,omitempty"`
+
+	Accidental_text *Accidental_text `xml:"accidental-text,omitempty" json:"accidental-text,omitempty"`
+}
+
+type Ornaments struct {
+	Accidental_mark []*Accidental_mark `xml:"accidental-mark,omitempty" json:"accidental-mark,omitempty"`
+
+	// The trill-mark element represents the trill-mark symbol.
+	Trill_mark *Empty_trill_sound `xml:"trill-mark,omitempty" json:"trill-mark,omitempty"`
+
+	// The turn element is the normal turn shape which goes up
+	// then down.
+	Turn *Horizontal_turn `xml:"turn,omitempty" json:"turn,omitempty"`
+
+	// The delayed-turn element indicates a normal turn that is
+	// delayed until the end of the current note.
+	Delayed_turn *Horizontal_turn `xml:"delayed-turn,omitempty" json:"delayed-turn,omitempty"`
+
+	// The inverted-turn element has the shape which goes down
+	// and then up.
+	Inverted_turn *Horizontal_turn `xml:"inverted-turn,omitempty" json:"inverted-turn,omitempty"`
+
+	// The delayed-inverted-turn element indicates an inverted
+	// turn that is delayed until the end of the current note.
+	Delayed_inverted_turn *Horizontal_turn `xml:"delayed-inverted-turn,omitempty" json:"delayed-inverted-turn,omitempty"`
+
+	// The vertical-turn element has the turn symbol shape
+	// arranged vertically going from upper left to lower right.
+	Vertical_turn *Empty_trill_sound `xml:"vertical-turn,omitempty" json:"vertical-turn,omitempty"`
+
+	// The inverted-vertical-turn element has the turn symbol
+	// shape arranged vertically going from upper right to lower left.
+	Inverted_vertical_turn *Empty_trill_sound `xml:"inverted-vertical-turn,omitempty" json:"inverted-vertical-turn,omitempty"`
+
+	// The shake element has a similar appearance to an
+	// inverted-mordent element.
+	Shake *Empty_trill_sound `xml:"shake,omitempty" json:"shake,omitempty"`
+
+	Wavy_line *Wavy_line `xml:"wavy-line,omitempty" json:"wavy-line,omitempty"`
+
+	// The mordent element represents the sign with the vertical
+	// line. The choice of which mordent sign is inverted differs between
+	// MusicXML and SMuFL. The long attribute is "no" by default.
+	Mordent *Mordent `xml:"mordent,omitempty" json:"mordent,omitempty"`
+
+	// The inverted-mordent element represents the sign without
+	// the vertical line. The choice of which mordent is inverted differs
+	// between MusicXML and SMuFL. The long attribute is "no" by default.
+	Inverted_mordent *Mordent `xml:"inverted-mordent,omitempty" json:"inverted-mordent,omitempty"`
+
+	// The name for this ornament is based on the German, to
+	// avoid confusion with the more common slide element defined earlier.
+	Schleifer *Empty_placement `xml:"schleifer,omitempty" json:"schleifer,omitempty"`
+
+	Tremolo *Tremolo `xml:"tremolo,omitempty" json:"tremolo,omitempty"`
+
+	// The haydn element represents the Haydn ornament. This is
+	// defined in SMuFL as ornamentHaydn.
+	Haydn *Empty_trill_sound `xml:"haydn,omitempty" json:"haydn,omitempty"`
+
+	// The other-ornament element is used to define any ornaments
+	// not yet in the MusicXML format. The smufl attribute can be used to
+	// specify a particular ornament, allowing application interoperability
+	// without requiring every SMuFL ornament to have a MusicXML element
+	// equivalent. Using the other-ornament element without the smufl attribute
+	// allows for extended representation, though without application
+	// interoperability.
+	Other_ornament *Other_placement_text `xml:"other-ornament,omitempty" json:"other-ornament,omitempty"`
+}
+
+type Other_notation struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type *Start_stop_single `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Other_placement_text string
+
+type Other_text string
+
+type Pitch struct {
+	Step *Step `xml:"step,omitempty" json:"step,omitempty"`
+
+	Alter *Semitones `xml:"alter,omitempty" json:"alter,omitempty"`
+
+	Octave *Octave `xml:"octave,omitempty" json:"octave,omitempty"`
+}
+
+type Placement_text string
+
+type Release struct {
+	*Empty
+
+	Offset *Divisions `xml:"offset,attr,omitempty" json:"offset,omitempty"`
+}
+
+type Rest struct {
+	Measure *Yes_no `xml:"measure,attr,omitempty" json:"measure,omitempty"`
+}
+
+type Slide struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Slur struct {
+	Type *Start_stop_continue `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Stem struct {
+	Value *Stem_value `xml:",chardata" json:"-,"`
+}
+
+type Strong_accent struct {
+	*Empty_placement
+
+	Type *Up_down `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Style_text string
+
+type Tap struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	Hand *Tap_hand `xml:"hand,attr,omitempty" json:"hand,omitempty"`
+}
+
+type Technical struct {
+
+	// The up-bow element represents the symbol that is used both for
+	// up-bowing on bowed instruments, and up-stroke on plucked instruments.
+	Up_bow *Empty_placement `xml:"up-bow,omitempty" json:"up-bow,omitempty"`
+
+	// The down-bow element represents the symbol that is used both
+	// for down-bowing on bowed instruments, and down-stroke on plucked
+	// instruments.
+	Down_bow *Empty_placement `xml:"down-bow,omitempty" json:"down-bow,omitempty"`
+
+	Harmonic *Harmonic `xml:"harmonic,omitempty" json:"harmonic,omitempty"`
+
+	// The open-string element represents the zero-shaped open string
+	// symbol.
+	Open_string *Empty_placement `xml:"open-string,omitempty" json:"open-string,omitempty"`
+
+	// The thumb-position element represents the thumb position
+	// symbol. This is a circle with a line, where the line does not come within
+	// the circle. It is distinct from the snap pizzicato symbol, where the line
+	// comes inside the circle.
+	Thumb_position *Empty_placement `xml:"thumb-position,omitempty" json:"thumb-position,omitempty"`
+
+	Fingering *Fingering `xml:"fingering,omitempty" json:"fingering,omitempty"`
+
+	// The pluck element is used to specify the plucking fingering on
+	// a fretted instrument, where the fingering element refers to the fretting
+	// fingering. Typical values are p, i, m, a for pulgar/thumb, indicio/index,
+	// medio/middle, and anular/ring fingers.
+	Pluck *Placement_text `xml:"pluck,omitempty" json:"pluck,omitempty"`
+
+	// The double-tongue element represents the double tongue symbol
+	// (two dots arranged horizontally).
+	Double_tongue *Empty_placement `xml:"double-tongue,omitempty" json:"double-tongue,omitempty"`
+
+	// The triple-tongue element represents the triple tongue symbol
+	// (three dots arranged horizontally).
+	Triple_tongue *Empty_placement `xml:"triple-tongue,omitempty" json:"triple-tongue,omitempty"`
+
+	// The stopped element represents the stopped symbol, which looks
+	// like a plus sign. The smufl attribute distinguishes different SMuFL glyphs
+	// that have a similar appearance such as handbellsMalletBellSuspended and
+	// guitarClosePedal. If not present, the default glyph is brassMuteClosed.
+	Stopped *Empty_placement_smufl `xml:"stopped,omitempty" json:"stopped,omitempty"`
+
+	// The snap-pizzicato element represents the snap pizzicato
+	// symbol. This is a circle with a line, where the line comes inside the
+	// circle. It is distinct from the thumb-position symbol, where the line does
+	// not come inside the circle.
+	Snap_pizzicato *Empty_placement `xml:"snap-pizzicato,omitempty" json:"snap-pizzicato,omitempty"`
+
+	Fret *Fret `xml:"fret,omitempty" json:"fret,omitempty"`
+
+	Astring string `xml:"string,omitempty" json:"string,omitempty"`
+
+	Hammer_on *Hammer_on_pull_off `xml:"hammer-on,omitempty" json:"hammer-on,omitempty"`
+
+	Pull_off *Hammer_on_pull_off `xml:"pull-off,omitempty" json:"pull-off,omitempty"`
+
+	Bend *Bend `xml:"bend,omitempty" json:"bend,omitempty"`
+
+	Tap *Tap `xml:"tap,omitempty" json:"tap,omitempty"`
+
+	Heel *Heel_toe `xml:"heel,omitempty" json:"heel,omitempty"`
+
+	Toe *Heel_toe `xml:"toe,omitempty" json:"toe,omitempty"`
+
+	// The fingernails element is used in notation for harp and other
+	// plucked string instruments.
+	Fingernails *Empty_placement `xml:"fingernails,omitempty" json:"fingernails,omitempty"`
+
+	Hole *Hole `xml:"hole,omitempty" json:"hole,omitempty"`
+
+	Arrow *Arrow `xml:"arrow,omitempty" json:"arrow,omitempty"`
+
+	Handbell *Handbell `xml:"handbell,omitempty" json:"handbell,omitempty"`
+
+	// The brass-bend element represents the u-shaped bend symbol
+	// used in brass notation, distinct from the bend element used in guitar music.
+	Brass_bend *Empty_placement `xml:"brass-bend,omitempty" json:"brass-bend,omitempty"`
+
+	// The flip element represents the flip symbol used in brass
+	// notation.
+	Flip *Empty_placement `xml:"flip,omitempty" json:"flip,omitempty"`
+
+	// The smear element represents the tilde-shaped smear symbol
+	// used in brass notation.
+	Smear *Empty_placement `xml:"smear,omitempty" json:"smear,omitempty"`
+
+	// The open element represents the open symbol, which looks like
+	// a circle. The smufl attribute can be used to distinguish different SMuFL
+	// glyphs that have a similar appearance such as brassMuteOpen and
+	// guitarOpenPedal. If not present, the default glyph is brassMuteOpen.
+	Open *Empty_placement_smufl `xml:"open,omitempty" json:"open,omitempty"`
+
+	// The half-muted element represents the half-muted symbol, which
+	// looks like a circle with a plus sign inside. The smufl attribute can be used
+	// to distinguish different SMuFL glyphs that have a similar appearance such as
+	// brassMuteHalfClosed and guitarHalfOpenPedal. If not present, the default
+	// glyph is brassMuteHalfClosed.
+	Half_muted *Empty_placement_smufl `xml:"half-muted,omitempty" json:"half-muted,omitempty"`
+
+	Harmon_mute *Harmon_mute `xml:"harmon-mute,omitempty" json:"harmon-mute,omitempty"`
+
+	// The golpe element represents the golpe symbol that is used for
+	// tapping the pick guard in guitar music.
+	Golpe *Empty_placement `xml:"golpe,omitempty" json:"golpe,omitempty"`
+
+	// The other-technical element is used to define any technical
+	// indications not yet in the MusicXML format. The smufl attribute can be used
+	// to specify a particular glyph, allowing application interoperability without
+	// requiring every SMuFL technical indication to have a MusicXML element
+	// equivalent. Using the other-technical element without the smufl attribute
+	// allows for extended representation, though without application
+	// interoperability.
+	Other_technical *Other_placement_text `xml:"other-technical,omitempty" json:"other-technical,omitempty"`
+}
+
+type Text_element_data struct {
+	Value string `xml:",chardata" json:"-,"`
+
+	EmptyString string `xml:",attr,omitempty" json:",omitempty"`
+}
+
+type Tie struct {
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+}
+
+type Tied struct {
+	Type *Tied_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Time_modification struct {
+
+	// The actual-notes element describes how many notes are played
+	// in the time usually occupied by the number in the normal-notes element.
+	Actual_notes uint32 `xml:"actual-notes,omitempty" json:"actual-notes,omitempty"`
+
+	// The normal-notes element describes how many notes are usually
+	// played in the time occupied by the number in the actual-notes element.
+	Normal_notes uint32 `xml:"normal-notes,omitempty" json:"normal-notes,omitempty"`
+}
+
+type Tremolo struct {
+	Value *Tremolo_marks `xml:",chardata" json:"-,"`
+
+	Type *Tremolo_type `xml:"type,attr,omitempty" json:"type,omitempty"`
+}
+
+type Tuplet struct {
+
+	// The tuplet-actual element provide optional full control over
+	// how the actual part of the tuplet is displayed, including number and note
+	// type (with dots). If any of these elements are absent, their values are
+	// based on the time-modification element.
+	Tuplet_actual *Tuplet_portion `xml:"tuplet-actual,omitempty" json:"tuplet-actual,omitempty"`
+
+	// The tuplet-normal element provide optional full control over
+	// how the normal part of the tuplet is displayed, including number and note
+	// type (with dots). If any of these elements are absent, their values are
+	// based on the time-modification element.
+	Tuplet_normal *Tuplet_portion `xml:"tuplet-normal,omitempty" json:"tuplet-normal,omitempty"`
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number *Number_level `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Bracket *Yes_no `xml:"bracket,attr,omitempty" json:"bracket,omitempty"`
+
+	Show_number *Show_tuplet `xml:"show-number,attr,omitempty" json:"show-number,omitempty"`
+
+	Show_type *Show_tuplet `xml:"show-type,attr,omitempty" json:"show-type,omitempty"`
+}
+
+type Tuplet_dot struct {
+}
+
+type Tuplet_number struct {
+	Value uint32 `xml:",chardata" json:"-,"`
+}
+
+type Tuplet_portion struct {
+	Tuplet_number *Tuplet_number `xml:"tuplet-number,omitempty" json:"tuplet-number,omitempty"`
+
+	Tuplet_type *Tuplet_type `xml:"tuplet-type,omitempty" json:"tuplet-type,omitempty"`
+
+	Tuplet_dot []*Tuplet_dot `xml:"tuplet-dot,omitempty" json:"tuplet-dot,omitempty"`
+}
+
+type Tuplet_type struct {
+	Value *Note_type_value `xml:",chardata" json:"-,"`
+}
+
+type Unpitched struct {
+}
+
+type Wait struct {
+	Player *IDREF `xml:"player,attr,omitempty" json:"player,omitempty"`
+
+	Time_only *Time_only `xml:"time-only,attr,omitempty" json:"time-only,omitempty"`
+}
+
+type Credit struct {
+	Credit_type []string `xml:"credit-type,omitempty" json:"credit-type,omitempty"`
+
+	Link []*Link `xml:"link,omitempty" json:"link,omitempty"`
+
+	Bookmark []*Bookmark `xml:"bookmark,omitempty" json:"bookmark,omitempty"`
+
+	Credit_image *Image `xml:"credit-image,omitempty" json:"credit-image,omitempty"`
+
+	Page *PositiveInteger `xml:"page,attr,omitempty" json:"page,omitempty"`
+}
+
+type Defaults struct {
+	Scaling *Scaling `xml:"scaling,omitempty" json:"scaling,omitempty"`
+
+	// The presence of a concert-score element indicates that a score
+	// is displayed in concert pitch. It is used for scores that contain parts for
+	// transposing instruments. A document with a concert-score element may not
+	// contain any transpose elements that have non-zero values for either the
+	// diatonic or chromatic elements. Concert scores may include octave
+	// transpositions, so transpose elements with a double element or a non-zero
+	// octave-change element value are permitted.
+	Concert_score *Empty `xml:"concert-score,omitempty" json:"concert-score,omitempty"`
+
+	Appearance *Appearance `xml:"appearance,omitempty" json:"appearance,omitempty"`
+
+	Music_font *Empty_font `xml:"music-font,omitempty" json:"music-font,omitempty"`
+
+	Word_font *Empty_font `xml:"word-font,omitempty" json:"word-font,omitempty"`
+
+	Lyric_font []*Lyric_font `xml:"lyric-font,omitempty" json:"lyric-font,omitempty"`
+
+	Lyric_language []*Lyric_language `xml:"lyric-language,omitempty" json:"lyric-language,omitempty"`
+}
+
+type Empty_font struct {
+}
+
+type Group_barline struct {
+	Value *Group_barline_value `xml:",chardata" json:"-,"`
+}
+
+type Group_name string
+
+type Group_symbol struct {
+	Value *Group_symbol_value `xml:",chardata" json:"-,"`
+}
+
+type Instrument_link struct {
+	Id *IDREF `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Lyric_font struct {
+	Number *NMTOKEN `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
+}
+
+type Lyric_language struct {
+	Number *NMTOKEN `xml:"number,attr,omitempty" json:"number,omitempty"`
+
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
+
+	EmptyString string `xml:",attr,omitempty" json:",omitempty"`
+}
+
+type Opus struct {
+}
+
+type Part_group struct {
+	Group_name *Group_name `xml:"group-name,omitempty" json:"group-name,omitempty"`
+
+	// Formatting specified in the group-name-display element
+	// overrides formatting specified in the group-name element.
+	Group_name_display *Name_display `xml:"group-name-display,omitempty" json:"group-name-display,omitempty"`
+
+	Group_abbreviation *Group_name `xml:"group-abbreviation,omitempty" json:"group-abbreviation,omitempty"`
+
+	// Formatting specified in the group-abbreviation-display element
+	// overrides formatting specified in the group-abbreviation element.
+	Group_abbreviation_display *Name_display `xml:"group-abbreviation-display,omitempty" json:"group-abbreviation-display,omitempty"`
+
+	Group_symbol *Group_symbol `xml:"group-symbol,omitempty" json:"group-symbol,omitempty"`
+
+	Group_barline *Group_barline `xml:"group-barline,omitempty" json:"group-barline,omitempty"`
+
+	// The group-time element indicates that the displayed time
+	// signatures should stretch across all parts and staves in the group.
+	Group_time *Empty `xml:"group-time,omitempty" json:"group-time,omitempty"`
+
+	Type *Start_stop `xml:"type,attr,omitempty" json:"type,omitempty"`
+
+	Number string `xml:"number,attr,omitempty" json:"number,omitempty"`
+}
+
+type Part_link struct {
+	Instrument_link []*Instrument_link `xml:"instrument-link,omitempty" json:"instrument-link,omitempty"`
+
+	// Multiple part-link elements can reference different types of
+	// linked documents, such as parts and condensed score. The optional group-link
+	// elements identify the groups used in the linked document. The content of a
+	// group-link element should match the content of a group element in the linked
+	// document.
+	Group_link []string `xml:"group-link,omitempty" json:"group-link,omitempty"`
+}
+
+type Part_list struct {
+}
+
+type Part_name string
+
+type Player struct {
+
+	// The player-name element is typically used within a software
+	// application, rather than appearing on the printed page of a score.
+	Player_name string `xml:"player-name,omitempty" json:"player-name,omitempty"`
+
+	Id *ID_MUSICXML `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Score_instrument struct {
+
+	// The instrument-name element is typically used within a
+	// software application, rather than appearing on the printed page of a score.
+	Instrument_name string `xml:"instrument-name,omitempty" json:"instrument-name,omitempty"`
+
+	// The optional instrument-abbreviation element is typically used
+	// within a software application, rather than appearing on the printed page of
+	// a score.
+	Instrument_abbreviation string `xml:"instrument-abbreviation,omitempty" json:"instrument-abbreviation,omitempty"`
+
+	Id *ID_MUSICXML `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Score_part struct {
+	Identification *Identification `xml:"identification,omitempty" json:"identification,omitempty"`
+
+	Part_link []*Part_link `xml:"part-link,omitempty" json:"part-link,omitempty"`
+
+	Part_name *Part_name `xml:"part-name,omitempty" json:"part-name,omitempty"`
+
+	Part_name_display *Name_display `xml:"part-name-display,omitempty" json:"part-name-display,omitempty"`
+
+	Part_abbreviation *Part_name `xml:"part-abbreviation,omitempty" json:"part-abbreviation,omitempty"`
+
+	Part_abbreviation_display *Name_display `xml:"part-abbreviation-display,omitempty" json:"part-abbreviation-display,omitempty"`
+
+	// The group element allows the use of different versions of the
+	// part for different purposes. Typical values include score, parts, sound, and
+	// data. Ordering information can be derived from the ordering within a
+	// MusicXML score or opus.
+	Group []string `xml:"group,omitempty" json:"group,omitempty"`
+
+	Score_instrument []*Score_instrument `xml:"score-instrument,omitempty" json:"score-instrument,omitempty"`
+
+	Player []*Player `xml:"player,omitempty" json:"player,omitempty"`
+
+	Id *ID_MUSICXML `xml:"id,attr,omitempty" json:"id,omitempty"`
+}
+
+type Virtual_instrument struct {
+
+	// The virtual-library element indicates the virtual instrument
+	// library name.
+	Virtual_library string `xml:"virtual-library,omitempty" json:"virtual-library,omitempty"`
+
+	// The virtual-name element indicates the library-specific name
+	// for the virtual instrument.
+	Virtual_name string `xml:"virtual-name,omitempty" json:"virtual-name,omitempty"`
+}
+
+type Work struct {
+
+	// The work-number element specifies the number of a work, such
+	// as its opus number.
+	Work_number string `xml:"work-number,omitempty" json:"work-number,omitempty"`
+
+	// The work-title element specifies the title of a work, not
+	// including its opus or other work number.
+	Work_title string `xml:"work-title,omitempty" json:"work-title,omitempty"`
+
+	Opus *Opus `xml:"opus,omitempty" json:"opus,omitempty"`
+}

@@ -14,7 +14,37 @@ func GetReverseFieldOwnerName[T models.Gongstruct](
 	res = ""
 	switch inst := any(instance).(type) {
 	// insertion point
+	case *models.Bookmark:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
 	case *models.Foo:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Link:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Lyric:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Lyric_font:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Lyric_language:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Miscellaneous_field:
 		switch reverseField.GongstructName {
 		// insertion point
 		}
@@ -34,7 +64,37 @@ func GetReverseFieldOwner[T models.Gongstruct](
 	res = nil
 	switch inst := any(instance).(type) {
 	// insertion point
+	case *models.Bookmark:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
 	case *models.Foo:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Link:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Lyric:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Lyric_font:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Lyric_language:
+		switch reverseField.GongstructName {
+		// insertion point
+		}
+
+	case *models.Miscellaneous_field:
 		switch reverseField.GongstructName {
 		// insertion point
 		}

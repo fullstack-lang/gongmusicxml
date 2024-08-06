@@ -314,7 +314,13 @@ func ParseAstFileFromAst(stage *StageStruct, inFile *ast.File, fset *token.FileS
 var __gong__map_Indentifiers_gongstructName = make(map[string]string)
 
 // insertion point for identifiers maps
+var __gong__map_Bookmark = make(map[string]*Bookmark)
 var __gong__map_Foo = make(map[string]*Foo)
+var __gong__map_Link = make(map[string]*Link)
+var __gong__map_Lyric = make(map[string]*Lyric)
+var __gong__map_Lyric_font = make(map[string]*Lyric_font)
+var __gong__map_Lyric_language = make(map[string]*Lyric_language)
+var __gong__map_Miscellaneous_field = make(map[string]*Miscellaneous_field)
 
 // Parser needs to be configured for having the [Name1.Name2] or [pkg.Name1] ...
 // to be recognized as a proper identifier.
@@ -487,10 +493,34 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 									// this is the place where an instance is created
 									switch gongstructName {
 									// insertion point for identifiers
+									case "Bookmark":
+										instanceBookmark := (&Bookmark{Name: instanceName}).Stage(stage)
+										instance = any(instanceBookmark)
+										__gong__map_Bookmark[identifier] = instanceBookmark
 									case "Foo":
 										instanceFoo := (&Foo{Name: instanceName}).Stage(stage)
 										instance = any(instanceFoo)
 										__gong__map_Foo[identifier] = instanceFoo
+									case "Link":
+										instanceLink := (&Link{Name: instanceName}).Stage(stage)
+										instance = any(instanceLink)
+										__gong__map_Link[identifier] = instanceLink
+									case "Lyric":
+										instanceLyric := (&Lyric{Name: instanceName}).Stage(stage)
+										instance = any(instanceLyric)
+										__gong__map_Lyric[identifier] = instanceLyric
+									case "Lyric_font":
+										instanceLyric_font := (&Lyric_font{Name: instanceName}).Stage(stage)
+										instance = any(instanceLyric_font)
+										__gong__map_Lyric_font[identifier] = instanceLyric_font
+									case "Lyric_language":
+										instanceLyric_language := (&Lyric_language{Name: instanceName}).Stage(stage)
+										instance = any(instanceLyric_language)
+										__gong__map_Lyric_language[identifier] = instanceLyric_language
+									case "Miscellaneous_field":
+										instanceMiscellaneous_field := (&Miscellaneous_field{Name: instanceName}).Stage(stage)
+										instance = any(instanceMiscellaneous_field)
+										__gong__map_Miscellaneous_field[identifier] = instanceMiscellaneous_field
 									}
 									__gong__map_Indentifiers_gongstructName[identifier] = gongstructName
 									return
@@ -527,7 +557,31 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 						}
 						switch gongstructName {
 						// insertion point for basic lit assignments
+						case "Bookmark":
+							switch fieldName {
+							// insertion point for date assign code
+							}
 						case "Foo":
+							switch fieldName {
+							// insertion point for date assign code
+							}
+						case "Link":
+							switch fieldName {
+							// insertion point for date assign code
+							}
+						case "Lyric":
+							switch fieldName {
+							// insertion point for date assign code
+							}
+						case "Lyric_font":
+							switch fieldName {
+							// insertion point for date assign code
+							}
+						case "Lyric_language":
+							switch fieldName {
+							// insertion point for date assign code
+							}
+						case "Miscellaneous_field":
 							switch fieldName {
 							// insertion point for date assign code
 							}
@@ -556,7 +610,31 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 					}
 					switch gongstructName {
 					// insertion point for slice of pointers assignments
+					case "Bookmark":
+						switch fieldName {
+						// insertion point for slice of pointers assign code
+						}
 					case "Foo":
+						switch fieldName {
+						// insertion point for slice of pointers assign code
+						}
+					case "Link":
+						switch fieldName {
+						// insertion point for slice of pointers assign code
+						}
+					case "Lyric":
+						switch fieldName {
+						// insertion point for slice of pointers assign code
+						}
+					case "Lyric_font":
+						switch fieldName {
+						// insertion point for slice of pointers assign code
+						}
+					case "Lyric_language":
+						switch fieldName {
+						// insertion point for slice of pointers assign code
+						}
+					case "Miscellaneous_field":
 						switch fieldName {
 						// insertion point for slice of pointers assign code
 						}
@@ -609,6 +687,14 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 
 			switch gongstructName {
 			// insertion point for basic lit assignments
+			case "Bookmark":
+				switch fieldName {
+				// insertion point for field dependant code
+				case "Name":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Bookmark[identifier].Name = fielValue
+				}
 			case "Foo":
 				switch fieldName {
 				// insertion point for field dependant code
@@ -616,6 +702,54 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 					// remove first and last char
 					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
 					__gong__map_Foo[identifier].Name = fielValue
+				}
+			case "Link":
+				switch fieldName {
+				// insertion point for field dependant code
+				case "Name":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Link[identifier].Name = fielValue
+				}
+			case "Lyric":
+				switch fieldName {
+				// insertion point for field dependant code
+				case "Name":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Lyric[identifier].Name = fielValue
+				}
+			case "Lyric_font":
+				switch fieldName {
+				// insertion point for field dependant code
+				case "Name":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Lyric_font[identifier].Name = fielValue
+				}
+			case "Lyric_language":
+				switch fieldName {
+				// insertion point for field dependant code
+				case "Name":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Lyric_language[identifier].Name = fielValue
+				case "EmptyString":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Lyric_language[identifier].EmptyString = fielValue
+				}
+			case "Miscellaneous_field":
+				switch fieldName {
+				// insertion point for field dependant code
+				case "Value":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Miscellaneous_field[identifier].Value = fielValue
+				case "Name":
+					// remove first and last char
+					fielValue := basicLit.Value[1 : len(basicLit.Value)-1]
+					__gong__map_Miscellaneous_field[identifier].Name = fielValue
 				}
 			}
 		case *ast.Ident:
@@ -631,7 +765,31 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 			}
 			switch gongstructName {
 			// insertion point for bool & pointers assignments
+			case "Bookmark":
+				switch fieldName {
+				// insertion point for field dependant code
+				}
 			case "Foo":
+				switch fieldName {
+				// insertion point for field dependant code
+				}
+			case "Link":
+				switch fieldName {
+				// insertion point for field dependant code
+				}
+			case "Lyric":
+				switch fieldName {
+				// insertion point for field dependant code
+				}
+			case "Lyric_font":
+				switch fieldName {
+				// insertion point for field dependant code
+				}
+			case "Lyric_language":
+				switch fieldName {
+				// insertion point for field dependant code
+				}
+			case "Miscellaneous_field":
 				switch fieldName {
 				// insertion point for field dependant code
 				}
@@ -663,7 +821,31 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 				_ = enumValue
 				switch gongstructName {
 				// insertion point for enums assignments
+				case "Bookmark":
+					switch fieldName {
+					// insertion point for enum assign code
+					}
 				case "Foo":
+					switch fieldName {
+					// insertion point for enum assign code
+					}
+				case "Link":
+					switch fieldName {
+					// insertion point for enum assign code
+					}
+				case "Lyric":
+					switch fieldName {
+					// insertion point for enum assign code
+					}
+				case "Lyric_font":
+					switch fieldName {
+					// insertion point for enum assign code
+					}
+				case "Lyric_language":
+					switch fieldName {
+					// insertion point for enum assign code
+					}
+				case "Miscellaneous_field":
 					switch fieldName {
 					// insertion point for enum assign code
 					}
