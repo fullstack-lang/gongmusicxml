@@ -108,3 +108,7 @@ type string struct {
 	Value *String_number `xml:",chardata" json:"-,"`
 }
 ```
+
+Notice that 6 structs have already a Name attributes
+
+### issue with 

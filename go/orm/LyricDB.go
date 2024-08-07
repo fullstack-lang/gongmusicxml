@@ -46,6 +46,26 @@ type LyricAPI struct {
 // reverse pointers of slice of poitners to Struct
 type LyricPointersEncoding struct {
 	// insertion for pointer fields encoding declaration
+
+	// field End_line is a pointer to another Struct (optional or 0..1)
+	// This field is generated into another field to enable AS ONE association
+	End_lineID sql.NullInt64
+
+	// field End_paragraph is a pointer to another Struct (optional or 0..1)
+	// This field is generated into another field to enable AS ONE association
+	End_paragraphID sql.NullInt64
+
+	// field Extend is a pointer to another Struct (optional or 0..1)
+	// This field is generated into another field to enable AS ONE association
+	ExtendID sql.NullInt64
+
+	// field Laughing is a pointer to another Struct (optional or 0..1)
+	// This field is generated into another field to enable AS ONE association
+	LaughingID sql.NullInt64
+
+	// field Humming is a pointer to another Struct (optional or 0..1)
+	// This field is generated into another field to enable AS ONE association
+	HummingID sql.NullInt64
 }
 
 // LyricDB describes a lyric in the database
@@ -211,6 +231,66 @@ func (backRepoLyric *BackRepoLyricStruct) CommitPhaseTwoInstance(backRepo *BackR
 		lyricDB.CopyBasicFieldsFromLyric(lyric)
 
 		// insertion point for translating pointers encodings into actual pointers
+		// commit pointer value lyric.End_line translates to updating the lyric.End_lineID
+		lyricDB.End_lineID.Valid = true // allow for a 0 value (nil association)
+		if lyric.End_line != nil {
+			if End_lineId, ok := backRepo.BackRepoEmpty.Map_EmptyPtr_EmptyDBID[lyric.End_line]; ok {
+				lyricDB.End_lineID.Int64 = int64(End_lineId)
+				lyricDB.End_lineID.Valid = true
+			}
+		} else {
+			lyricDB.End_lineID.Int64 = 0
+			lyricDB.End_lineID.Valid = true
+		}
+
+		// commit pointer value lyric.End_paragraph translates to updating the lyric.End_paragraphID
+		lyricDB.End_paragraphID.Valid = true // allow for a 0 value (nil association)
+		if lyric.End_paragraph != nil {
+			if End_paragraphId, ok := backRepo.BackRepoEmpty.Map_EmptyPtr_EmptyDBID[lyric.End_paragraph]; ok {
+				lyricDB.End_paragraphID.Int64 = int64(End_paragraphId)
+				lyricDB.End_paragraphID.Valid = true
+			}
+		} else {
+			lyricDB.End_paragraphID.Int64 = 0
+			lyricDB.End_paragraphID.Valid = true
+		}
+
+		// commit pointer value lyric.Extend translates to updating the lyric.ExtendID
+		lyricDB.ExtendID.Valid = true // allow for a 0 value (nil association)
+		if lyric.Extend != nil {
+			if ExtendId, ok := backRepo.BackRepoExtend.Map_ExtendPtr_ExtendDBID[lyric.Extend]; ok {
+				lyricDB.ExtendID.Int64 = int64(ExtendId)
+				lyricDB.ExtendID.Valid = true
+			}
+		} else {
+			lyricDB.ExtendID.Int64 = 0
+			lyricDB.ExtendID.Valid = true
+		}
+
+		// commit pointer value lyric.Laughing translates to updating the lyric.LaughingID
+		lyricDB.LaughingID.Valid = true // allow for a 0 value (nil association)
+		if lyric.Laughing != nil {
+			if LaughingId, ok := backRepo.BackRepoEmpty.Map_EmptyPtr_EmptyDBID[lyric.Laughing]; ok {
+				lyricDB.LaughingID.Int64 = int64(LaughingId)
+				lyricDB.LaughingID.Valid = true
+			}
+		} else {
+			lyricDB.LaughingID.Int64 = 0
+			lyricDB.LaughingID.Valid = true
+		}
+
+		// commit pointer value lyric.Humming translates to updating the lyric.HummingID
+		lyricDB.HummingID.Valid = true // allow for a 0 value (nil association)
+		if lyric.Humming != nil {
+			if HummingId, ok := backRepo.BackRepoEmpty.Map_EmptyPtr_EmptyDBID[lyric.Humming]; ok {
+				lyricDB.HummingID.Int64 = int64(HummingId)
+				lyricDB.HummingID.Valid = true
+			}
+		} else {
+			lyricDB.HummingID.Int64 = 0
+			lyricDB.HummingID.Valid = true
+		}
+
 		query := backRepoLyric.db.Save(&lyricDB)
 		if query.Error != nil {
 			log.Fatalln(query.Error)
@@ -324,6 +404,31 @@ func (backRepoLyric *BackRepoLyricStruct) CheckoutPhaseTwoInstance(backRepo *Bac
 func (lyricDB *LyricDB) DecodePointers(backRepo *BackRepoStruct, lyric *models.Lyric) {
 
 	// insertion point for checkout of pointer encoding
+	// End_line field
+	lyric.End_line = nil
+	if lyricDB.End_lineID.Int64 != 0 {
+		lyric.End_line = backRepo.BackRepoEmpty.Map_EmptyDBID_EmptyPtr[uint(lyricDB.End_lineID.Int64)]
+	}
+	// End_paragraph field
+	lyric.End_paragraph = nil
+	if lyricDB.End_paragraphID.Int64 != 0 {
+		lyric.End_paragraph = backRepo.BackRepoEmpty.Map_EmptyDBID_EmptyPtr[uint(lyricDB.End_paragraphID.Int64)]
+	}
+	// Extend field
+	lyric.Extend = nil
+	if lyricDB.ExtendID.Int64 != 0 {
+		lyric.Extend = backRepo.BackRepoExtend.Map_ExtendDBID_ExtendPtr[uint(lyricDB.ExtendID.Int64)]
+	}
+	// Laughing field
+	lyric.Laughing = nil
+	if lyricDB.LaughingID.Int64 != 0 {
+		lyric.Laughing = backRepo.BackRepoEmpty.Map_EmptyDBID_EmptyPtr[uint(lyricDB.LaughingID.Int64)]
+	}
+	// Humming field
+	lyric.Humming = nil
+	if lyricDB.HummingID.Int64 != 0 {
+		lyric.Humming = backRepo.BackRepoEmpty.Map_EmptyDBID_EmptyPtr[uint(lyricDB.HummingID.Int64)]
+	}
 	return
 }
 
@@ -552,6 +657,36 @@ func (backRepoLyric *BackRepoLyricStruct) RestorePhaseTwo() {
 		_ = lyricDB
 
 		// insertion point for reindexing pointers encoding
+		// reindexing End_line field
+		if lyricDB.End_lineID.Int64 != 0 {
+			lyricDB.End_lineID.Int64 = int64(BackRepoEmptyid_atBckpTime_newID[uint(lyricDB.End_lineID.Int64)])
+			lyricDB.End_lineID.Valid = true
+		}
+
+		// reindexing End_paragraph field
+		if lyricDB.End_paragraphID.Int64 != 0 {
+			lyricDB.End_paragraphID.Int64 = int64(BackRepoEmptyid_atBckpTime_newID[uint(lyricDB.End_paragraphID.Int64)])
+			lyricDB.End_paragraphID.Valid = true
+		}
+
+		// reindexing Extend field
+		if lyricDB.ExtendID.Int64 != 0 {
+			lyricDB.ExtendID.Int64 = int64(BackRepoExtendid_atBckpTime_newID[uint(lyricDB.ExtendID.Int64)])
+			lyricDB.ExtendID.Valid = true
+		}
+
+		// reindexing Laughing field
+		if lyricDB.LaughingID.Int64 != 0 {
+			lyricDB.LaughingID.Int64 = int64(BackRepoEmptyid_atBckpTime_newID[uint(lyricDB.LaughingID.Int64)])
+			lyricDB.LaughingID.Valid = true
+		}
+
+		// reindexing Humming field
+		if lyricDB.HummingID.Int64 != 0 {
+			lyricDB.HummingID.Int64 = int64(BackRepoEmptyid_atBckpTime_newID[uint(lyricDB.HummingID.Int64)])
+			lyricDB.HummingID.Valid = true
+		}
+
 		// update databse with new index encoding
 		query := backRepoLyric.db.Model(lyricDB).Updates(*lyricDB)
 		if query.Error != nil {

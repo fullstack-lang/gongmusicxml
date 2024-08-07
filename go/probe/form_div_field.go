@@ -72,10 +72,13 @@ func FormDivEnumIntFieldToField[TF models.PointerToGongstructEnumIntField](field
 	}
 }
 
-func FormDivSelectFieldToField[TF models.PointerToGongstruct](field *TF, stageOfInterest *models.StageStruct, formDiv *form.FormDiv) {
+func FormDivSelectFieldToField[TF interface {
+	models.PointerToGongstruct
+	comparable
+}](field *TF, stageOfInterest *models.StageStruct, formDiv *form.FormDiv) {
 
 	if formDiv.FormFields[0].FormFieldSelect.Value == nil {
-		*field = nil
+		// *field = nil
 	} else {
 		for _instance := range *models.GetGongstructInstancesSetFromPointerType[TF](stageOfInterest) {
 			if any(_instance).(TF).GetName() == formDiv.FormFields[0].FormFieldSelect.Value.GetName() {

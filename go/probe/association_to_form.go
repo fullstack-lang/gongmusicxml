@@ -9,7 +9,10 @@ import (
 
 // AssociationFieldToForm will append a div to the form
 // with the values of options equal to the name of each possible instances in the association type
-func AssociationFieldToForm[FieldType models.PointerToGongstruct](
+func AssociationFieldToForm[FieldType interface {
+	models.PointerToGongstruct
+	comparable
+}](
 	fieldName string, field FieldType, formGroup *form.FormGroup, probe *Probe,
 ) {
 
@@ -47,7 +50,13 @@ func AssociationFieldToForm[FieldType models.PointerToGongstruct](
 	}
 }
 
-func AssociationReverseFieldToForm[OwnerType models.PointerToGongstruct, FieldType models.PointerToGongstruct](
+func AssociationReverseFieldToForm[OwnerType interface {
+	models.PointerToGongstruct
+	comparable
+}, FieldType interface {
+	models.PointerToGongstruct
+	comparable
+}](
 	owner OwnerType,
 	fieldName string,
 	instance FieldType,
@@ -80,7 +89,7 @@ func AssociationReverseFieldToForm[OwnerType models.PointerToGongstruct, FieldTy
 		}).Stage(probe.formStage)
 
 		// set up select value if field matches the instance
-		if owner != nil && _instance == owner {
+		if _instance == owner {
 			formFieldSelect.Value = option
 		}
 
