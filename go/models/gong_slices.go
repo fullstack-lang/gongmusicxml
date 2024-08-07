@@ -19,13 +19,7 @@ package models
 // fields of other instance
 //
 // Note : algo is in O(N)log(N) of nb of Astruct and Bstruct instances
-func EvictInOtherSlices[OwningType interface {
-	PointerToGongstruct
-	comparable
-}, FieldType interface {
-	PointerToGongstruct
-	comparable
-}](
+func EvictInOtherSlices[OwningType PointerToGongstruct, FieldType PointerToGongstruct](
 	stage *StageStruct,
 	owningInstance OwningType,
 	sliceField []FieldType,

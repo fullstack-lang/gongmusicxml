@@ -8,6 +8,8 @@ import (
 	"math"
 	"slices"
 	"time"
+
+	"golang.org/x/exp/maps"
 )
 
 func __Gong__Abs(x int) int {
@@ -17420,29 +17422,22 @@ type PointerToGongstruct interface {
 	GetName() string
 	CommitVoid(*StageStruct)
 	UnstageVoid(stage *StageStruct)
+	comparable
 }
 
 func CompareGongstructByName[T PointerToGongstruct](a, b T) int {
 	return cmp.Compare(a.GetName(), b.GetName())
 }
 
-func SortGongstructSetByName[T interface {
-	PointerToGongstruct
-	comparable
-}](set map[T]any) (sortedSlice []T) {
+func SortGongstructSetByName[T PointerToGongstruct](set map[T]any) (sortedSlice []T) {
 
-	for s := range set {
-		sortedSlice = append(sortedSlice, s)
-	}
+	sortedSlice = maps.Keys(set)
 	slices.SortFunc(sortedSlice, CompareGongstructByName)
 
 	return
 }
 
-func GetGongstrucsSorted[T interface {
-	PointerToGongstruct
-	comparable
-}](stage *StageStruct) (sortedSlice []T) {
+func GetGongstrucsSorted[T PointerToGongstruct](stage *StageStruct) (sortedSlice []T) {
 
 	set := GetGongstructInstancesSetFromPointerType[T](stage)
 	sortedSlice = SortGongstructSetByName(*set)
@@ -17456,8 +17451,6 @@ type GongstructSet interface {
 
 type GongstructMapString interface {
 	map[any]any
-	// insertion point for generic types
-
 }
 
 // GongGetSet returns the set staged GongstructType instances
@@ -18800,10 +18793,7 @@ func GetGongstructInstancesSet[Type Gongstruct](stage *StageStruct) *map[*Type]a
 
 // GetGongstructInstancesSetFromPointerType returns the set staged GongstructType instances
 // it is usefull because it allows refactoring of gongstruct identifier
-func GetGongstructInstancesSetFromPointerType[Type interface {
-	PointerToGongstruct
-	comparable
-}](stage *StageStruct) *map[Type]any {
+func GetGongstructInstancesSetFromPointerType[Type PointerToGongstruct](stage *StageStruct) *map[Type]any {
 	var ret Type
 
 	switch any(ret).(type) {

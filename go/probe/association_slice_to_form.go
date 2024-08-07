@@ -16,13 +16,7 @@ import (
 // AssociationSliceToForm add a form div with 2 buttons
 // - one for selection
 // - one for sorting
-func AssociationSliceToForm[InstanceType interface {
-	models.PointerToGongstruct
-	comparable
-}, FieldType interface {
-	models.PointerToGongstruct
-	comparable
-}](
+func AssociationSliceToForm[InstanceType models.PointerToGongstruct, FieldType models.PointerToGongstruct](
 	fieldName string,
 	instance InstanceType,
 	field *[]FieldType,
@@ -52,27 +46,14 @@ func AssociationSliceToForm[InstanceType interface {
 	formSortAssocButton.OnSortEdition = onSortingEditon
 
 }
-
-type OnAssocEditon[InstanceType interface {
-	models.PointerToGongstruct
-	comparable
-}, FieldType interface {
-	models.PointerToGongstruct
-	comparable
-}] struct {
-	instance  InstanceType
-	field     *[]FieldType
-	fieldName string
-	probe     *Probe
+type OnAssocEditon[InstanceType models.PointerToGongstruct, FieldType models.PointerToGongstruct] struct {
+	instance   InstanceType
+	field      *[]FieldType
+	fieldName  string
+	probe *Probe
 }
 
-func NewOnAssocEditon[InstanceType interface {
-	models.PointerToGongstruct
-	comparable
-}, FieldType interface {
-	models.PointerToGongstruct
-	comparable
-}](
+func NewOnAssocEditon[InstanceType models.PointerToGongstruct, FieldType models.PointerToGongstruct](
 	instance InstanceType,
 	field *[]FieldType,
 	fieldName string,
@@ -155,13 +136,7 @@ func (onAssocEditon *OnAssocEditon[InstanceType, FieldType]) OnButtonPressed() {
 	tableStageForSelection.Commit()
 }
 
-func NewTablePickSaver[InstanceType interface {
-	models.PointerToGongstruct
-	comparable
-}, FieldType interface {
-	models.PointerToGongstruct
-	comparable
-}](
+func NewTablePickSaver[InstanceType models.PointerToGongstruct, FieldType models.PointerToGongstruct](
 	instance InstanceType,
 	field *[]FieldType,
 	fieldName string,
@@ -178,17 +153,11 @@ func NewTablePickSaver[InstanceType interface {
 	return
 }
 
-type TablePickSaver[InstanceType interface {
-	models.PointerToGongstruct
-	comparable
-}, FieldType interface {
-	models.PointerToGongstruct
-	comparable
-}] struct {
-	instance  InstanceType
-	field     *[]FieldType
-	fieldName string
-	probe     *Probe
+type TablePickSaver[InstanceType models.PointerToGongstruct, FieldType models.PointerToGongstruct] struct {
+	instance   InstanceType
+	field      *[]FieldType
+	fieldName  string
+	probe *Probe
 }
 
 func (tablePickSaver *TablePickSaver[InstanceType, FieldType]) TableUpdated(
